@@ -1,6 +1,6 @@
-# Day 0 · Environment Setup (Sat 8 Aug 2026)
+# Day 0 · Environment Setup (Fri 7 Aug 2026)
 
-Do this **before** Monday's first session. Budget 60–90 minutes. Nothing here is optional — every later lab assumes it.
+Do this **before** the first session (Fri 7 Aug, 11:00 IST). Budget 60–90 minutes. Nothing here is optional — every later lab assumes it.
 
 ## 1. Python 3.12 + uv
 
@@ -99,10 +99,10 @@ Your Mac is fine through Week 13. From Week 14 (deep learning) use **Google Cola
 
 ## 8. Study hygiene (read this once, follow it for 26 weeks)
 
-- **09:00 sharp.** Phone in another room. The session is 3 hours, not 3 hours of context-switching.
+- **11:00 sharp.** Phone in another room. The session is 3 hours, not 3 hours of context-switching.
 - **Paper and pen on the desk.** Math gets derived by hand before it gets typed.
 - **Type every line.** Copy-paste teaches nothing. Typos are where learning happens.
-- **Commit before 12:00.** If it isn't committed, the day didn't happen.
+- **Commit before 14:00.** If it isn't committed, the day didn't happen.
 - **Write down what confused you.** Each Saturday exam draws from your own confusion list.
 
 ## Setup checklist
@@ -113,4 +113,4 @@ Your Mac is fine through Week 13. From Week 14 (deep learning) use **Google Cola
 - [ ] Jupyter Lab launches and runs a cell
 - [ ] Git configured, public `aiml-journey` repo created and pushed
 - [ ] Kaggle + Hugging Face + Colab accounts created
-- [ ] Notebook, pen, and a distraction-free desk for 09:00 Monday
+- [ ] Notebook, pen, and a distraction-free desk for 11:00 daily

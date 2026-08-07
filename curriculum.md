@@ -2,9 +2,11 @@
 
 **Goal:** ship-capable AI/ML Engineer (build, train, deploy, and operate models) in 26 weeks.
 **Starting point:** strong .NET / architecture background, **fresher in Python and ML**.
-**Format:** Mon–Fri 09:00–12:00 IST (3 hrs) tutor session + Saturday 12:00–13:00 IST exam.
-**Orientation day:** Sat 8 Aug 2026 — environment setup only, no exam.
-**Real Day 1:** Mon 10 Aug 2026. **Final day:** Fri 5 Feb 2027. **Final exam:** Sat 6 Feb 2027.
+**Format:** Mon–Fri **11:00–14:00 IST** (3 hrs) tutor session + Saturday 12:00–13:00 IST exam.
+**Orientation day:** Fri 7 Aug 2026 (morning) — environment setup.
+**Real Day 1:** **Fri 7 Aug 2026, 11:00 IST** *(brought forward from Mon 10 Aug at Harsh's request)*. **Final day:** Fri 5 Feb 2027. **Final exam:** Sat 6 Feb 2027.
+
+> **Schedule amendment · 7 Aug 2026.** The weekday window moved from 09:00–12:00 to **11:00–14:00 IST**, permanently. Saturday exams stay at 12:00–13:00. Day 1 was brought forward to Fri 7 Aug; Week 1 therefore runs Fri 7 → Thu 13 Aug with **Fri 14 Aug as a buffer/review day**. Exam 1 remains Sat 15 Aug. Every subsequent week, exam date and milestone date is unchanged.
 **Milestone 1 (job-ready junior/associate ML engineer):** Fri 6 Nov 2026 (end of Week 13).
 **Milestone 2 (AI/ML Engineer, market-validated):** Fri 5 Feb 2027 (end of Week 26).
 
@@ -16,10 +18,10 @@
 
 | Block | Time (IST) | What happens |
 |---|---|---|
-| Concept | 09:00–09:50 | Deep teaching of the day's topic. Diagrams, math worked by hand, "when would you use this". Ends with 3 reflection questions Harsh must answer. |
-| Lab | 09:50–11:20 | Runnable, hands-on code. Harsh types every line himself. Build → break → fix. |
-| Quiz | 11:20–11:45 | 10 questions (MCQ + short answer + 1 code-reading/debug question). Scored /100, strict grading. |
-| Log | 11:45–12:00 | Notes, commit to GitHub, dashboard update, tomorrow's preview. |
+| Concept | 11:00–11:50 | Deep teaching of the day's topic. Diagrams, math worked by hand, "when would you use this". Ends with 3 reflection questions Harsh must answer. |
+| Lab | 11:50–13:20 | Runnable, hands-on code. Harsh types every line himself. Build → break → fix. |
+| Quiz | 13:20–13:45 | 10 questions (MCQ + short answer + 1 code-reading/debug question). Scored /100, strict grading. |
+| Log | 13:45–14:00 | Notes, commit to GitHub, dashboard update, tomorrow's preview. |
 
 ## Saturday exam shape (1 hr, 12:00–13:00 IST)
 
@@ -42,15 +44,16 @@ Weighted: current week 40, cumulative retention 30, applied/design 30. **Pass ga
 ---
 
 # PHASE 1 · Python & Engineering Foundations
-**Weeks 1–4 · 10 Aug – 4 Sep 2026 · 60 hrs**
+**Weeks 1–4 · 7 Aug – 4 Sep 2026 · 60 hrs**
 *Outcome: write idiomatic, tested, typed Python; comfortable with NumPy and pandas; first EDA notebook shipped.*
 
-### Week 1 (10–14 Aug) — Python core
-- **D1 Mon 10 Aug** — Environment (Python 3.12, uv, VS Code, Jupyter), Python execution model, variables, types, operators, REPL vs script
-- **D2 Tue 11 Aug** — Control flow, loops, functions, arguments, scope, `*args`/`**kwargs`, pure functions
-- **D3 Wed 12 Aug** — list / tuple / dict / set, mutability, comprehensions, unpacking
-- **D4 Thu 13 Aug** — Strings & formatting, file I/O, exceptions, modules & packages, `__main__`
-- **D5 Fri 14 Aug** — Idiomatic Python (`enumerate`, `zip`, slicing, `pathlib`), mini CLI project
+### Week 1 (7–13 Aug) — Python core
+- **D1 Fri 7 Aug** — Environment (Python 3.12, uv, VS Code, Jupyter), Python execution model, variables, types, operators, REPL vs script
+- **D2 Mon 10 Aug** — Control flow, loops, functions, arguments, scope, `*args`/`**kwargs`, pure functions
+- **D3 Tue 11 Aug** — list / tuple / dict / set, mutability, comprehensions, unpacking
+- **D4 Wed 12 Aug** — Strings & formatting, file I/O, exceptions, modules & packages, `__main__`
+- **D5 Thu 13 Aug** — Idiomatic Python (`enumerate`, `zip`, slicing, `pathlib`), mini CLI project
+- **Fri 14 Aug** — buffer / review day (no new topic, no quiz)
 - **Exam 1 · Sat 15 Aug**
 
 ### Week 2 (17–21 Aug) — OOP, tooling, Git

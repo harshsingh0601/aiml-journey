@@ -2,63 +2,267 @@
   "student": {
     "name": "Harsh Singh",
     "track": "AI/ML Engineer",
-    "startDate": "2026-08-10",
+    "startDate": "2026-08-07",
     "milestone1Date": "2026-11-06",
     "targetDate": "2027-02-05",
     "finalExamDate": "2027-02-06",
     "totalDays": 180,
     "sessionHours": 3,
-    "sessionWindow": "09:00-12:00 IST, Mon-Fri",
+    "sessionWindow": "11:00-14:00 IST, Mon-Fri",
     "examWindow": "12:00-13:00 IST, Saturday",
-    "kickoffWindow": { "from": "2026-08-08", "to": "2026-08-09" },
-    "backgroundNote": "Senior .NET/Azure engineering leader. Complete fresher in Python and ML. Strong on architecture, DevOps, cloud, and systems thinking - weak on Python syntax, math notation, and ML theory. Teach accordingly: skip generic 'what is an API' framing, do NOT skip Python or math fundamentals."
+    "kickoffWindow": {
+      "from": "2026-08-07",
+      "to": "2026-08-07"
+    },
+    "backgroundNote": "Senior .NET/Azure engineering leader. Complete fresher in Python and ML. Strong on architecture, DevOps, cloud, and systems thinking - weak on Python syntax, math notation, and ML theory. Teach accordingly: skip generic 'what is an API' framing, do NOT skip Python or math fundamentals.",
+    "scheduleNote": "Weekday window moved 09:00-12:00 -> 11:00-14:00 IST permanently on 7 Aug 2026. Day 1 brought forward from Mon 10 Aug to Fri 7 Aug. Week 1 = Fri 7 -> Thu 13 Aug, Fri 14 Aug buffer/review. Exam 1 Sat 15 Aug and all downstream dates/milestones unchanged."
   },
   "skillAxes": {
-    "python":         { "current": 15, "target": 90, "industryAvg": 88, "label": "Python" },
-    "mathStats":      { "current": 20, "target": 80, "industryAvg": 78, "label": "Math & Stats" },
-    "dataWrangling":  { "current":  8, "target": 88, "industryAvg": 85, "label": "Data / pandas" },
-    "classicalMl":    { "current":  5, "target": 88, "industryAvg": 85, "label": "Classical ML" },
-    "deepLearning":   { "current":  3, "target": 85, "industryAvg": 82, "label": "Deep Learning" },
-    "llmGenai":       { "current": 20, "target": 88, "industryAvg": 75, "label": "LLM / GenAI" },
-    "mlops":          { "current": 15, "target": 85, "industryAvg": 78, "label": "MLOps" },
-    "prodEng":        { "current": 30, "target": 88, "industryAvg": 80, "label": "Prod Engineering" }
+    "python": {
+      "current": 8.5,
+      "target": 90,
+      "industryAvg": 88,
+      "label": "Python",
+      "baselineNote": "Never written a line (Q4). Q5 mutation/aliasing wrong. 15 was generous."
+    },
+    "mathStats": {
+      "current": 18,
+      "target": 80,
+      "industryAvg": 78,
+      "label": "Math & Stats",
+      "baselineNote": "Q7 derivative: nothing. Q8 mean correct, outlier instinct right but no median. Q9 frequentist reading of probability: strong. Calculus zero, probability real."
+    },
+    "dataWrangling": {
+      "current": 8,
+      "target": 88,
+      "industryAvg": 85,
+      "label": "Data / pandas",
+      "baselineNote": "Not probed by the baseline. Value unchanged, treat as unverified."
+    },
+    "classicalMl": {
+      "current": 8,
+      "target": 88,
+      "industryAvg": 85,
+      "label": "Classical ML",
+      "baselineNote": "Q10 identified the learned-from-data system correctly; no reasoning given. Concept present, vocabulary absent."
+    },
+    "deepLearning": {
+      "current": 3,
+      "target": 85,
+      "industryAvg": 82,
+      "label": "Deep Learning",
+      "baselineNote": "Not probed by the baseline. Value unchanged, treat as unverified."
+    },
+    "llmGenai": {
+      "current": 20,
+      "target": 88,
+      "industryAvg": 75,
+      "label": "LLM / GenAI",
+      "baselineNote": "Not probed by the baseline. Value unchanged, treat as unverified."
+    },
+    "mlops": {
+      "current": 15,
+      "target": 85,
+      "industryAvg": 78,
+      "label": "MLOps",
+      "baselineNote": "Not probed by the baseline. Value unchanged, treat as unverified."
+    },
+    "prodEng": {
+      "current": 26,
+      "target": 88,
+      "industryAvg": 80,
+      "label": "Prod Engineering",
+      "baselineNote": "Q1 storage correct but pass-semantics half unanswered. Q2 complexity wrong (said O(n log n) for a linear scan) and reached for a DB index on an in-memory List. Q3 unanswered. Strongest axis, but 30 was not evidence-backed."
+    }
   },
   "phases": [
-    { "id": 1, "name": "Python & Engineering Foundations", "weeks": "Wk 1-4",   "days": 20, "hours": 60, "progress": 0, "status": "in_progress", "outcomes": "Idiomatic typed Python · OOP · Git · NumPy · pandas · first EDA notebook" },
-    { "id": 2, "name": "Math for ML + Data Work",          "weeks": "Wk 5-7",   "days": 15, "hours": 45, "progress": 0, "status": "locked",      "outcomes": "Linear algebra · calculus & optimisation · probability & stats · Project P1 ships" },
-    { "id": 3, "name": "Classical Machine Learning",       "weeks": "Wk 8-13",  "days": 30, "hours": 90, "progress": 0, "status": "locked", "milestone": true, "outcomes": "Regression · classification · ensembles · pipelines · FastAPI+Docker deploy · P2 ships · MILESTONE 1" },
-    { "id": 4, "name": "Deep Learning (PyTorch)",          "weeks": "Wk 14-18", "days": 25, "hours": 75, "progress": 0, "status": "locked",      "outcomes": "Backprop from scratch · CNNs · transformers · fine-tuning · P3 ships" },
-    { "id": 5, "name": "LLM & GenAI Engineering",          "weeks": "Wk 19-22", "days": 20, "hours": 60, "progress": 0, "status": "locked",      "outcomes": "Prompting · RAG · agents & MCP · evals & guardrails · LLMOps · P4 ships" },
-    { "id": 6, "name": "MLOps, Capstone & Interview",      "weeks": "Wk 23-26", "days": 20, "hours": 60, "progress": 0, "status": "locked", "milestone": true, "outcomes": "MLflow · CI/CD · drift monitoring · system design drills · Capstone P5 · MILESTONE 2" }
+    {
+      "id": 1,
+      "name": "Python & Engineering Foundations",
+      "weeks": "Wk 1-4",
+      "days": 20,
+      "hours": 60,
+      "progress": 5.0,
+      "status": "in_progress",
+      "outcomes": "Idiomatic typed Python · OOP · Git · NumPy · pandas · first EDA notebook"
+    },
+    {
+      "id": 2,
+      "name": "Math for ML + Data Work",
+      "weeks": "Wk 5-7",
+      "days": 15,
+      "hours": 45,
+      "progress": 0,
+      "status": "locked",
+      "outcomes": "Linear algebra · calculus & optimisation · probability & stats · Project P1 ships"
+    },
+    {
+      "id": 3,
+      "name": "Classical Machine Learning",
+      "weeks": "Wk 8-13",
+      "days": 30,
+      "hours": 90,
+      "progress": 0,
+      "status": "locked",
+      "milestone": true,
+      "outcomes": "Regression · classification · ensembles · pipelines · FastAPI+Docker deploy · P2 ships · MILESTONE 1"
+    },
+    {
+      "id": 4,
+      "name": "Deep Learning (PyTorch)",
+      "weeks": "Wk 14-18",
+      "days": 25,
+      "hours": 75,
+      "progress": 0,
+      "status": "locked",
+      "outcomes": "Backprop from scratch · CNNs · transformers · fine-tuning · P3 ships"
+    },
+    {
+      "id": 5,
+      "name": "LLM & GenAI Engineering",
+      "weeks": "Wk 19-22",
+      "days": 20,
+      "hours": 60,
+      "progress": 0,
+      "status": "locked",
+      "outcomes": "Prompting · RAG · agents & MCP · evals & guardrails · LLMOps · P4 ships"
+    },
+    {
+      "id": 6,
+      "name": "MLOps, Capstone & Interview",
+      "weeks": "Wk 23-26",
+      "days": 20,
+      "hours": 60,
+      "progress": 0,
+      "status": "locked",
+      "milestone": true,
+      "outcomes": "MLflow · CI/CD · drift monitoring · system design drills · Capstone P5 · MILESTONE 2"
+    }
   ],
   "projects": [
-    { "name": "P1 · Data Analysis & Statistical Report", "phase": "Phase 2", "completion": 0, "status": "not_started", "desc": "Real dataset, full EDA, hypothesis tests, defensible business conclusions. pandas + matplotlib + stats." },
-    { "name": "P2 · End-to-End Classical ML Service",     "phase": "Phase 3", "completion": 0, "status": "not_started", "desc": "Trained model → sklearn pipeline → FastAPI → Docker → Azure Container Apps, with MLflow tracking." },
-    { "name": "P3 · Fine-Tuned Deep Learning Model",      "phase": "Phase 4", "completion": 0, "status": "not_started", "desc": "PyTorch fine-tune of a pretrained backbone (vision or BERT), served with an API and a model card." },
-    { "name": "P4 · Production RAG + Agent App",          "phase": "Phase 5", "completion": 0, "status": "not_started", "desc": "Vector store + hybrid retrieval + tool-calling agent, with an eval harness, guardrails and cost dashboard." },
-    { "name": "P5 · Capstone: End-to-End ML Platform",    "phase": "Phase 6", "completion": 0, "status": "not_started", "desc": "Data pipeline → training → registry → CI/CD → deployment → drift monitoring. Full ADRs + cost analysis." }
+    {
+      "name": "P1 · Data Analysis & Statistical Report",
+      "phase": "Phase 2",
+      "completion": 0,
+      "status": "not_started",
+      "desc": "Real dataset, full EDA, hypothesis tests, defensible business conclusions. pandas + matplotlib + stats."
+    },
+    {
+      "name": "P2 · End-to-End Classical ML Service",
+      "phase": "Phase 3",
+      "completion": 0,
+      "status": "not_started",
+      "desc": "Trained model → sklearn pipeline → FastAPI → Docker → Azure Container Apps, with MLflow tracking."
+    },
+    {
+      "name": "P3 · Fine-Tuned Deep Learning Model",
+      "phase": "Phase 4",
+      "completion": 0,
+      "status": "not_started",
+      "desc": "PyTorch fine-tune of a pretrained backbone (vision or BERT), served with an API and a model card."
+    },
+    {
+      "name": "P4 · Production RAG + Agent App",
+      "phase": "Phase 5",
+      "completion": 0,
+      "status": "not_started",
+      "desc": "Vector store + hybrid retrieval + tool-calling agent, with an eval harness, guardrails and cost dashboard."
+    },
+    {
+      "name": "P5 · Capstone: End-to-End ML Platform",
+      "phase": "Phase 6",
+      "completion": 0,
+      "status": "not_started",
+      "desc": "Data pipeline → training → registry → CI/CD → deployment → drift monitoring. Full ADRs + cost analysis."
+    }
   ],
   "criteriaMilestone1": [
-    { "label": "All 8 skill axes ≥ 55",                        "done": false },
-    { "label": "Python + Data + Classical ML axes ≥ 70",        "done": false },
-    { "label": "P1 and P2 shipped publicly on GitHub",          "done": false },
-    { "label": "Can build → evaluate → deploy a model unaided", "done": false },
-    { "label": "Rolling 4-week exam average ≥ 75",              "done": false },
-    { "label": "Curriculum ≥ 50% complete",                     "done": false }
+    {
+      "label": "All 8 skill axes ≥ 55",
+      "done": false
+    },
+    {
+      "label": "Python + Data + Classical ML axes ≥ 70",
+      "done": false
+    },
+    {
+      "label": "P1 and P2 shipped publicly on GitHub",
+      "done": false
+    },
+    {
+      "label": "Can build → evaluate → deploy a model unaided",
+      "done": false
+    },
+    {
+      "label": "Rolling 4-week exam average ≥ 75",
+      "done": false
+    },
+    {
+      "label": "Curriculum ≥ 50% complete",
+      "done": false
+    }
   ],
   "criteriaMilestone2": [
-    { "label": "All 8 axes ≥ 75; Python/ML/DL/GenAI ≥ 85",      "done": false },
-    { "label": "P1–P5 all shipped publicly",                    "done": false },
-    { "label": "Capstone deployed AND monitored in production",  "done": false },
-    { "label": "Mock interview ≥ 8/10 (design + code + theory)", "done": false },
-    { "label": "Rolling exam average ≥ 80; final ≥ 80",         "done": false },
-    { "label": "Curriculum ≥ 95% complete",                     "done": false },
-    { "label": "Cloud ML cert passed (AI-102 or GCP PMLE)",      "done": false },
-    { "label": "150+ day GitHub commit streak",                  "done": false }
+    {
+      "label": "All 8 axes ≥ 75; Python/ML/DL/GenAI ≥ 85",
+      "done": false
+    },
+    {
+      "label": "P1–P5 all shipped publicly",
+      "done": false
+    },
+    {
+      "label": "Capstone deployed AND monitored in production",
+      "done": false
+    },
+    {
+      "label": "Mock interview ≥ 8/10 (design + code + theory)",
+      "done": false
+    },
+    {
+      "label": "Rolling exam average ≥ 80; final ≥ 80",
+      "done": false
+    },
+    {
+      "label": "Curriculum ≥ 95% complete",
+      "done": false
+    },
+    {
+      "label": "Cloud ML cert passed (AI-102 or GCP PMLE)",
+      "done": false
+    },
+    {
+      "label": "150+ day GitHub commit streak",
+      "done": false
+    }
   ],
-  "quizHistory": [],
+  "quizHistory": [
+    {
+      "date": "2026-08-07",
+      "week": 1,
+      "day": 1,
+      "topic": "Python execution model, names vs objects, mutability, types, operators",
+      "score": 57,
+      "breakdown": {
+        "mcq": "30/30",
+        "shortAnswer": "15/36",
+        "codeDebug": "12/14",
+        "applied": "0/20"
+      },
+      "note": "Perfect on recognition (MCQ 30/30). Lost 32 marks by declining Q7 and Q10 outright. Q7 was taught explicitly in today's concept block. Not a comprehension failure."
+    }
+  ],
   "examHistory": [],
   "weeklyAvg": [],
-  "streak": { "current": 0, "longest": 0 },
-  "meta": { "lastUpdated": null, "lastSession": null, "currentWeek": 0, "currentPhase": 1 }
+  "streak": {
+    "current": 0,
+    "longest": 0
+  },
+  "meta": {
+    "lastUpdated": "2026-08-07",
+    "lastSession": "2026-08-07 W1D1",
+    "currentWeek": 1,
+    "currentPhase": 1,
+    "baselineTaken": "2026-08-07"
+  }
 }
