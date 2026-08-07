@@ -255,14 +255,16 @@
   "examHistory": [],
   "weeklyAvg": [],
   "streak": {
-    "current": 0,
-    "longest": 0
+    "current": 1,
+    "longest": 1
   },
   "meta": {
     "lastUpdated": "2026-08-07",
     "lastSession": "2026-08-07 W1D1",
     "currentWeek": 1,
     "currentPhase": 1,
-    "baselineTaken": "2026-08-07"
+    "baselineTaken": "2026-08-07",
+    "repo": "https://github.com/harshsingh0601/aiml-journey",
+    "lastCommit": "f7e9b0f"
   }
 }
