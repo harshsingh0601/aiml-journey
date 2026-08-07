@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+.ipynb_checkpoints/
+*.pkl
+*.joblib
+data/raw/
+.env
+mlruns/
+.DS_Store

@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Harsh — AI/ML Engineer Track Dashboard</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.0/dist/chart.umd.js" integrity="sha384-iU8HYtnGQ8Cy4zl7gbNMOhsDTTKX02BTXptVP/vqAWIaTfM7isw76iyZCsjL2eVi" crossorigin="anonymous"></script>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    background: #fafaf9;
+    color: #1c1917;
+    line-height: 1.5;
+  }
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 20px; }
+  header.hero {
+    background: linear-gradient(135deg, #052e16 0%, #065f46 45%, #0e7490 100%);
+    color: #fff;
+    border-radius: 14px;
+    padding: 22px 26px;
+    margin-bottom: 18px;
+  }
+  header.hero h1 { margin: 0 0 4px; font-size: 22px; letter-spacing: -0.01em; }
+  header.hero .sub { opacity: 0.85; font-size: 13px; }
+  .hero-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 16px; }
+  .hero-stat { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.14); border-radius: 10px; padding: 12px 14px; }
+  .hero-stat .label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; opacity: 0.7; }
+  .hero-stat .value { font-size: 22px; font-weight: 600; margin-top: 4px; }
+  .hero-stat .value small { font-size: 12px; opacity: 0.7; font-weight: 400; }
+
+  .timeline {
+    display: flex; align-items: center; gap: 12px;
+    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 10px; padding: 12px 14px; margin-top: 14px;
+  }
+  .timeline .track { flex: 1; height: 6px; background: rgba(255,255,255,0.18); border-radius: 999px; position: relative; }
+  .timeline .fill { position: absolute; left: 0; top: 0; bottom: 0; background: linear-gradient(90deg, #34d399, #22d3ee); border-radius: 999px; }
+  .timeline .marker { position: absolute; top: -6px; width: 2px; height: 18px; background: #fff; }
+  .timeline .marker .lbl { position: absolute; top: 22px; transform: translateX(-50%); font-size: 10px; white-space: nowrap; opacity: 0.9; }
+  .timeline .meta { font-size: 11px; opacity: 0.75; min-width: 90px; }
+
+  .today-card {
+    background: #ecfdf5; border: 1px solid #a7f3d0; border-radius: 12px;
+    padding: 14px 18px; margin-bottom: 16px; font-size: 13px;
+  }
+  .today-card strong { font-size: 14px; }
+  .today-card .topic { color: #065f46; font-weight: 600; }
+
+  .grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 16px; }
+  .card {
+    background: #fff;
+    border: 1px solid #e7e5e4;
+    border-radius: 12px;
+    padding: 18px 20px;
+    margin-bottom: 16px;
+  }
+  .card h2 { margin: 0 0 4px; font-size: 15px; letter-spacing: -0.005em; }
+  .card .muted { color: #78716c; font-size: 12px; margin-bottom: 14px; }
+  .chart-box { position: relative; height: 320px; }
+  .chart-box.short { height: 210px; }
+
+  .phase { border: 1px solid #e7e5e4; border-radius: 10px; padding: 12px 14px; margin-bottom: 10px; }
+  .phase.locked { opacity: 0.55; }
+  .phase.milestone { border: 1.5px solid #059669; background: linear-gradient(180deg, #ecfdf5 0%, #fff 30%); }
+  .phase-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+  .phase-title { font-weight: 600; font-size: 14px; }
+  .phase-meta { font-size: 11px; color: #78716c; white-space: nowrap; }
+  .bar { width: 100%; height: 7px; background: #f5f5f4; border-radius: 999px; margin-top: 8px; overflow: hidden; }
+  .bar > span { display: block; height: 100%; background: linear-gradient(90deg, #059669, #0891b2); border-radius: 999px; }
+  .phase .outcomes { font-size: 12px; color: #57534e; margin-top: 6px; }
+
+  .pill { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 10px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; }
+  .pill.go    { background: #dcfce7; color: #166534; }
+  .pill.now   { background: #cffafe; color: #155e75; }
+  .pill.lock  { background: #f5f5f4; color: #78716c; }
+  .pill.milestone { background: #d1fae5; color: #065f46; }
+
+  .project { border: 1px solid #e7e5e4; border-radius: 10px; padding: 12px 14px; margin-bottom: 10px; }
+  .project h3 { margin: 0; font-size: 13px; }
+  .project p { margin: 4px 0 6px; font-size: 12px; color: #57534e; }
+
+  .criteria-block { margin-bottom: 14px; }
+  .criteria-block h3 { margin: 0 0 6px; font-size: 13px; }
+  .criteria-block .when { font-size: 11px; color: #78716c; margin-bottom: 4px; }
+  .criteria { list-style: none; padding: 0; margin: 0; }
+  .criteria li { padding: 7px 0; border-bottom: 1px dashed #e7e5e4; font-size: 12px; display: flex; justify-content: space-between; gap: 10px; }
+  .criteria li:last-child { border: 0; }
+  .check { font-size: 11px; font-weight: 600; white-space: nowrap; }
+  .check.done { color: #166534; }
+  .check.pending { color: #b45309; }
+
+  table.quiz { width: 100%; border-collapse: collapse; font-size: 12px; }
+  table.quiz th, table.quiz td { text-align: left; padding: 6px 8px; border-bottom: 1px solid #f5f5f4; }
+  table.quiz th { color: #78716c; font-weight: 500; font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; }
+  .score-good { color: #166534; font-weight: 600; }
+  .score-mid  { color: #b45309; font-weight: 600; }
+  .score-bad  { color: #b91c1c; font-weight: 600; }
+
+  .axis-row { display: flex; align-items: center; gap: 10px; font-size: 12px; padding: 5px 0; }
+  .axis-row .name { width: 130px; color: #44403c; }
+  .axis-row .track2 { flex: 1; height: 8px; background: #f5f5f4; border-radius: 999px; position: relative; overflow: hidden; }
+  .axis-row .cur { position: absolute; left: 0; top: 0; bottom: 0; background: linear-gradient(90deg,#059669,#22d3ee); border-radius: 999px; }
+  .axis-row .tgt { position: absolute; top: -2px; bottom: -2px; width: 2px; background: #78716c; }
+  .axis-row .num { width: 60px; text-align: right; color: #78716c; }
+
+  .empty { font-size: 12px; color: #a8a29e; font-style: italic; padding: 12px 0; }
+
+  @media (max-width: 800px) {
+    .grid { grid-template-columns: 1fr; }
+    .hero-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <h1>AI/ML Engineer Track — Harsh Singh</h1>
+    <div class="sub">Python fresher → ship-capable AI/ML Engineer · 26 weeks · 3 hrs/day (09:00–12:00 IST, Mon–Fri) + Saturday exam</div>
+    <div class="hero-grid">
+      <div class="hero-stat"><div class="label">Overall progress</div><div class="value" id="stat-overall">0% <small>of curriculum</small></div></div>
+      <div class="hero-stat"><div class="label">Days into plan</div><div class="value" id="stat-days">0 <small>/ 180</small></div></div>
+      <div class="hero-stat"><div class="label">Current streak</div><div class="value" id="stat-streak">0 <small>days</small></div></div>
+      <div class="hero-stat"><div class="label">ML readiness</div><div class="value" id="stat-readiness">0% <small>composite</small></div></div>
+    </div>
+    <div class="timeline">
+      <div class="meta">10 Aug '26</div>
+      <div class="track">
+        <div class="fill" id="tl-fill" style="width:0%"></div>
+        <div class="marker" id="tl-today" style="left:0%"><span class="lbl">Today</span></div>
+        <div class="marker" style="left:49%; background:#fbbf24"><span class="lbl">Job-ready · M1</span></div>
+        <div class="marker" style="left:100%; background:#34d399"><span class="lbl">ML Engineer · M2</span></div>
+      </div>
+      <div class="meta" style="text-align:right">6 Feb '27</div>
+    </div>
+  </header>
+
+  <div class="today-card" id="today-card"></div>
+
+  <div class="grid">
+    <div class="card">
+      <h2>Skill Radar — You vs Working ML Engineer</h2>
+      <div class="muted">Green = current · Cyan dashed = 26-week target · Grey = industry benchmark</div>
+      <div class="chart-box"><canvas id="radar"></canvas></div>
+      <div id="axis-list" style="margin-top:14px"></div>
+    </div>
+    <div class="card">
+      <h2>"You are an AI/ML Engineer when…"</h2>
+      <div class="muted">Two milestones, both with hard, checkable criteria.</div>
+
+      <div class="criteria-block">
+        <h3>Milestone 1 · Job-Ready (Week 13)</h3>
+        <div class="when">6 Nov 2026 — credible for junior / associate ML engineer roles</div>
+        <ul class="criteria" id="criteria-m1"></ul>
+      </div>
+
+      <div class="criteria-block">
+        <h3>Milestone 2 · AI/ML Engineer (Week 26)</h3>
+        <div class="when">5 Feb 2027 — market-validated, capstone in production</div>
+        <ul class="criteria" id="criteria-m2"></ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <h2>Curriculum — 6 Phases</h2>
+      <div class="muted">A phase unlocks when the previous one hits 90% and its gate exam scores ≥ 70 with its project shipped.</div>
+      <div id="phases"></div>
+    </div>
+    <div class="card">
+      <h2>Portfolio Projects</h2>
+      <div class="muted">Public GitHub repos. These, not certificates, are what get you hired.</div>
+      <div id="projects"></div>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <h2>Weekly Exam Trend</h2>
+      <div class="muted">Saturday exam scores. Pass gate 70. Target ≥ 80 sustained.</div>
+      <div class="chart-box short"><canvas id="trend"></canvas></div>
+    </div>
+    <div class="card">
+      <h2>Recent Daily Quiz Log</h2>
+      <div class="muted">Written by the 09:00 daily tutor session.</div>
+      <table class="quiz" id="quiz-table">
+        <thead><tr><th>Date</th><th>Topic</th><th>Score</th></tr></thead>
+        <tbody></tbody>
+      </table>
+      <div id="quiz-empty" class="empty">No quizzes recorded yet — Monday 10 Aug is Day 1.</div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+const STATE = {
+  "student": {
+    "name": "Harsh Singh",
+    "track": "AI/ML Engineer",
+    "startDate": "2026-08-10",
+    "milestone1Date": "2026-11-06",
+    "targetDate": "2027-02-05",
+    "finalExamDate": "2027-02-06",
+    "totalDays": 180
+  },
+  "skillAxes": {
+    "python":        { "current": 15, "target": 90, "industryAvg": 88, "label": "Python" },
+    "mathStats":     { "current": 20, "target": 80, "industryAvg": 78, "label": "Math & Stats" },
+    "dataWrangling": { "current":  8, "target": 88, "industryAvg": 85, "label": "Data / pandas" },
+    "classicalMl":   { "current":  5, "target": 88, "industryAvg": 85, "label": "Classical ML" },
+    "deepLearning":  { "current":  3, "target": 85, "industryAvg": 82, "label": "Deep Learning" },
+    "llmGenai":      { "current": 20, "target": 88, "industryAvg": 75, "label": "LLM / GenAI" },
+    "mlops":         { "current": 15, "target": 85, "industryAvg": 78, "label": "MLOps" },
+    "prodEng":       { "current": 30, "target": 88, "industryAvg": 80, "label": "Prod Engineering" }
+  },
+  "phases": [
+    { "id": 1, "name": "Python & Engineering Foundations", "weeks": "Wk 1-4",   "hours": 60, "progress": 0, "status": "in_progress", "outcomes": "Idiomatic typed Python · OOP · Git · NumPy · pandas · first EDA notebook" },
+    { "id": 2, "name": "Math for ML + Data Work",          "weeks": "Wk 5-7",   "hours": 45, "progress": 0, "status": "locked",      "outcomes": "Linear algebra · calculus & optimisation · probability & stats · P1 ships" },
+    { "id": 3, "name": "Classical Machine Learning",       "weeks": "Wk 8-13",  "hours": 90, "progress": 0, "status": "locked", "milestone": true, "outcomes": "Regression · classification · ensembles · pipelines · FastAPI+Docker deploy · P2 ships" },
+    { "id": 4, "name": "Deep Learning (PyTorch)",          "weeks": "Wk 14-18", "hours": 75, "progress": 0, "status": "locked",      "outcomes": "Backprop from scratch · CNNs · transformers · fine-tuning · P3 ships" },
+    { "id": 5, "name": "LLM & GenAI Engineering",          "weeks": "Wk 19-22", "hours": 60, "progress": 0, "status": "locked",      "outcomes": "Prompting · RAG · agents & MCP · evals & guardrails · LLMOps · P4 ships" },
+    { "id": 6, "name": "MLOps, Capstone & Interview",      "weeks": "Wk 23-26", "hours": 60, "progress": 0, "status": "locked", "milestone": true, "outcomes": "MLflow · CI/CD · drift monitoring · design drills · Capstone P5" }
+  ],
+  "projects": [
+    { "name": "P1 · Data Analysis & Statistical Report", "phase": "Phase 2", "completion": 0, "status": "not_started", "desc": "Real dataset, full EDA, hypothesis tests, defensible conclusions." },
+    { "name": "P2 · End-to-End Classical ML Service",    "phase": "Phase 3", "completion": 0, "status": "not_started", "desc": "sklearn pipeline → FastAPI → Docker → Azure Container Apps, MLflow tracked." },
+    { "name": "P3 · Fine-Tuned Deep Learning Model",     "phase": "Phase 4", "completion": 0, "status": "not_started", "desc": "PyTorch fine-tune of a pretrained backbone, served with an API and a model card." },
+    { "name": "P4 · Production RAG + Agent App",         "phase": "Phase 5", "completion": 0, "status": "not_started", "desc": "Hybrid retrieval + tool-calling agent with eval harness, guardrails, cost dashboard." },
+    { "name": "P5 · Capstone: End-to-End ML Platform",   "phase": "Phase 6", "completion": 0, "status": "not_started", "desc": "Pipeline → training → registry → CI/CD → deploy → drift monitoring. Full ADRs." }
+  ],
+  "criteriaMilestone1": [
+    { "label": "All 8 skill axes ≥ 55", "done": false },
+    { "label": "Python + Data + Classical ML ≥ 70", "done": false },
+    { "label": "P1 and P2 shipped publicly", "done": false },
+    { "label": "Build → evaluate → deploy a model unaided", "done": false },
+    { "label": "Rolling 4-week exam average ≥ 75", "done": false },
+    { "label": "Curriculum ≥ 50% complete", "done": false }
+  ],
+  "criteriaMilestone2": [
+    { "label": "All 8 axes ≥ 75; core four ≥ 85", "done": false },
+    { "label": "P1–P5 all shipped publicly", "done": false },
+    { "label": "Capstone deployed AND monitored", "done": false },
+    { "label": "Mock interview ≥ 8/10", "done": false },
+    { "label": "Rolling exam average ≥ 80; final ≥ 80", "done": false },
+    { "label": "Curriculum ≥ 95% complete", "done": false },
+    { "label": "Cloud ML cert passed (AI-102 or GCP PMLE)", "done": false },
+    { "label": "150+ day GitHub commit streak", "done": false }
+  ],
+  "quizHistory": [],
+  "examHistory": [],
+  "weeklyAvg": [],
+  "streak": { "current": 0, "longest": 0 },
+  "meta": { "lastUpdated": null, "lastSession": null, "currentWeek": 0, "currentPhase": 1 }
+};
+
+// ----- helpers -----
+function daysIntoPlan() {
+  const start = new Date(STATE.student.startDate + "T00:00:00");
+  return Math.max(0, Math.floor((new Date() - start) / 86400000));
+}
+function computeOverall() {
+  const totalH = STATE.phases.reduce((s,p) => s + p.hours, 0);
+  const doneH  = STATE.phases.reduce((s,p) => s + p.hours * (p.progress/100), 0);
+  return Math.round((doneH / totalH) * 100);
+}
+function computeReadiness() {
+  const axes = Object.values(STATE.skillAxes);
+  const skillScore = axes.reduce((s,a) => s + (a.current/a.target), 0) / axes.length;
+  const phaseScore = computeOverall() / 100;
+  const projScore  = STATE.projects.reduce((s,p) => s + p.completion, 0) / (STATE.projects.length * 100);
+  return Math.round((skillScore * 0.45 + phaseScore * 0.35 + projScore * 0.20) * 100);
+}
+function scoreClass(s) { return s >= 80 ? 'score-good' : (s >= 70 ? 'score-mid' : 'score-bad'); }
+
+document.getElementById("stat-overall").innerHTML   = computeOverall() + '% <small>of curriculum</small>';
+document.getElementById("stat-days").innerHTML      = daysIntoPlan() + ' <small>/ ' + STATE.student.totalDays + '</small>';
+document.getElementById("stat-streak").innerHTML    = STATE.streak.current + ' <small>days</small>';
+document.getElementById("stat-readiness").innerHTML = computeReadiness() + '% <small>composite</small>';
+
+const pct = Math.min(100, (daysIntoPlan() / STATE.student.totalDays) * 100);
+document.getElementById("tl-fill").style.width = pct + "%";
+document.getElementById("tl-today").style.left = pct + "%";
+
+// ----- today card -----
+(function () {
+  const el = document.getElementById("today-card");
+  const start = new Date(STATE.student.startDate + "T00:00:00");
+  const now = new Date();
+  const dow = now.getDay();
+  const wk = Math.max(1, Math.floor((now - start) / 86400000 / 7) + 1);
+  if (now < start) {
+    el.innerHTML = '<strong>Not started yet.</strong> Day 1 is <span class="topic">Monday 10 August 2026, 09:00 IST</span>. ' +
+      'Before then: finish <span class="topic">setup.md</span> — Python 3.12 + uv, VS Code, Jupyter, and a public <span class="topic">aiml-journey</span> GitHub repo.';
+  } else if (dow === 6) {
+    el.innerHTML = '<strong>Saturday — exam day.</strong> Week ' + wk + ' assessment runs 12:00–13:00 IST. 25 questions, pass gate 70.';
+  } else if (dow === 0) {
+    el.innerHTML = '<strong>Sunday — rest / make-up day.</strong> No session. If you missed an exam, make it up today.';
+  } else {
+    el.innerHTML = '<strong>Week ' + wk + ', Day ' + dow + '.</strong> Session 09:00–12:00 IST. ' +
+      'Concept → lab → quiz → commit. <span class="topic">No commit, no logged day.</span>';
+  }
+})();
+
+// ----- radar -----
+const axes = Object.values(STATE.skillAxes);
+new Chart(document.getElementById('radar'), {
+  type: 'radar',
+  data: {
+    labels: axes.map(a => a.label),
+    datasets: [
+      { label: 'You — current', data: axes.map(a => a.current), backgroundColor: 'rgba(5,150,105,0.20)', borderColor: '#059669', borderWidth: 2, pointBackgroundColor: '#059669' },
+      { label: 'You — 26-week target', data: axes.map(a => a.target), backgroundColor: 'rgba(8,145,178,0.08)', borderColor: '#0891b2', borderDash: [4,4], borderWidth: 2, pointBackgroundColor: '#0891b2' },
+      { label: 'Working ML Engineer', data: axes.map(a => a.industryAvg), backgroundColor: 'rgba(120,113,108,0.08)', borderColor: '#78716c', borderWidth: 1.5, pointBackgroundColor: '#78716c' }
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    scales: { r: { suggestedMin: 0, suggestedMax: 100, ticks: { stepSize: 25, color: '#a8a29e' }, grid: { color: '#e7e5e4' }, angleLines: { color: '#e7e5e4' }, pointLabels: { font: { size: 11 }, color: '#44403c' } } },
+    plugins: { legend: { position: 'bottom', labels: { font: { size: 11 }, boxWidth: 12 } } }
+  }
+});
+
+// ----- axis bars -----
+const axisEl = document.getElementById("axis-list");
+axes.forEach(a => {
+  axisEl.insertAdjacentHTML('beforeend',
+    '<div class="axis-row"><div class="name">' + a.label + '</div>' +
+    '<div class="track2"><div class="cur" style="width:' + a.current + '%"></div>' +
+    '<div class="tgt" style="left:' + a.target + '%"></div></div>' +
+    '<div class="num">' + a.current + ' / ' + a.target + '</div></div>');
+});
+
+// ----- phases -----
+const phasesEl = document.getElementById("phases");
+STATE.phases.forEach(p => {
+  const pillClass = p.status === 'in_progress' ? 'now' : (p.status === 'completed' ? 'go' : 'lock');
+  const pillText  = p.status === 'in_progress' ? 'In progress' : (p.status === 'completed' ? 'Done' : 'Locked');
+  const ms = p.milestone ? '<span class="pill milestone">Milestone</span> ' : '';
+  phasesEl.insertAdjacentHTML('beforeend',
+    '<div class="phase ' + (p.status === 'locked' ? 'locked' : '') + ' ' + (p.milestone ? 'milestone' : '') + '">' +
+      '<div class="phase-head"><div><span class="pill ' + pillClass + '">' + pillText + '</span> ' + ms +
+      '<span class="phase-title">Phase ' + p.id + ' · ' + p.name + '</span></div>' +
+      '<div class="phase-meta">' + p.weeks + ' · ' + p.hours + ' hrs · ' + p.progress + '%</div></div>' +
+      '<div class="bar"><span style="width:' + p.progress + '%"></span></div>' +
+      '<div class="outcomes">' + p.outcomes + '</div></div>');
+});
+
+// ----- projects -----
+const projEl = document.getElementById("projects");
+STATE.projects.forEach(p => {
+  const pillClass = p.status === 'shipped' ? 'go' : (p.status === 'in_progress' ? 'now' : 'lock');
+  const pillText  = p.status === 'shipped' ? 'Shipped' : (p.status === 'in_progress' ? 'Building' : 'Not started');
+  projEl.insertAdjacentHTML('beforeend',
+    '<div class="project"><div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px">' +
+    '<h3>' + p.name + '</h3><span class="pill ' + pillClass + '">' + pillText + '</span></div>' +
+    '<p>' + p.desc + ' <em style="color:#a8a29e">(' + p.phase + ')</em></p>' +
+    '<div class="bar"><span style="width:' + p.completion + '%"></span></div></div>');
+});
+
+// ----- criteria -----
+function fillCriteria(elId, items) {
+  const el = document.getElementById(elId);
+  items.forEach(c => {
+    el.insertAdjacentHTML('beforeend',
+      '<li><span>' + c.label + '</span><span class="check ' + (c.done ? 'done' : 'pending') + '">' +
+      (c.done ? '✓ done' : 'pending') + '</span></li>');
+  });
+}
+fillCriteria("criteria-m1", STATE.criteriaMilestone1);
+fillCriteria("criteria-m2", STATE.criteriaMilestone2);
+
+// ----- exam trend -----
+const examScores = STATE.examHistory.map(e => e.score);
+new Chart(document.getElementById('trend'), {
+  type: 'line',
+  data: {
+    labels: Array.from({length: Math.max(8, examScores.length)}, (_, i) => 'Ex' + (i+1)),
+    datasets: [
+      { label: 'Saturday exam score', data: examScores.length ? examScores : [null,null,null,null,null,null,null,null],
+        borderColor: '#059669', backgroundColor: 'rgba(5,150,105,0.10)', tension: 0.3, spanGaps: false, pointBackgroundColor: '#059669' },
+      { label: 'Pass gate (70)', data: Array(Math.max(8, examScores.length)).fill(70), borderColor: '#b45309', borderDash: [4,4], borderWidth: 1.5, pointRadius: 0 },
+      { label: 'Target (80)', data: Array(Math.max(8, examScores.length)).fill(80), borderColor: '#0891b2', borderDash: [2,4], borderWidth: 1.5, pointRadius: 0 }
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    scales: { y: { suggestedMin: 0, suggestedMax: 100, grid: { color: '#f5f5f4' } }, x: { grid: { display: false } } },
+    plugins: { legend: { position: 'bottom', labels: { font: { size: 10 }, boxWidth: 12 } } }
+  }
+});
+
+// ----- quiz table -----
+const tbody = document.querySelector("#quiz-table tbody");
+const empty = document.getElementById("quiz-empty");
+if (STATE.quizHistory.length) {
+  empty.style.display = 'none';
+  STATE.quizHistory.slice(-10).reverse().forEach(q => {
+    tbody.insertAdjacentHTML('beforeend',
+      '<tr><td>' + q.date + '</td><td>' + q.topic + '</td>' +
+      '<td class="' + scoreClass(q.score) + '">' + q.score + '%</td></tr>');
+  });
+} else {
+  document.getElementById("quiz-table").style.display = 'none';
+}
+</script>
+</body>
+</html>
