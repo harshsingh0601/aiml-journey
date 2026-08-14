@@ -1,0 +1,54 @@
+W1D2 LAB - WRITTEN ANSWERS
+==========================
+Fill this in as you go. Write predictions BEFORE running the file they refer to.
+A wrong prediction that you then correct is worth more than a blank.
+
+
+PART 2 - prediction (write BEFORE running break_default.py)
+-----------------------------------------------------------
+What will "run A", "run B", "run C" print?
+
+  run A:
+  run B:
+  run C:
+
+Will the two id() values match? Why?
+
+
+
+PART 3 - the API contract question
+-----------------------------------
+The `shared` list still gets mutated by the caller's own reference.
+Bug or feature? State the API contract you would document, in ONE sentence.
+
+
+
+PART 4 - prediction (write BEFORE running break_scope.py)
+----------------------------------------------------------
+What will `[f() for f in build_schedulers_broken()]` print, and why?
+
+
+
+Why does the traceback point at the `print` line and not at the assignment line?
+(Name the mechanism. "Python runs top to bottom" is the wrong answer.)
+
+
+
+PART 5 - the cost/benefit question
+-----------------------------------
+bump_best_pure needs one extra argument and one extra line at the call site.
+Name TWO concrete things that buys you. State testability and concurrency
+explicitly, WITH the mechanism. "It's cleaner" scores zero.
+
+  1.
+
+  2.
+
+
+
+PART 6 - the **kwargs question
+-------------------------------
+After you swap `train` to `def train(data, **kwargs)` and watch the `epcohs`
+typo stop raising: what would that have cost you in a real experiment?
+Be specific about what you would have concluded and why it would be wrong.
+

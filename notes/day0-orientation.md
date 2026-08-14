@@ -4,6 +4,8 @@
 **To be worked through:** Sat 8 Aug 2026, 60–90 minutes
 **Real Day 1:** Mon 10 Aug 2026, 09:00 IST
 
+> ⚠️ **SUPERSEDED — read this first.** This document was written before the schedule changed on 7 Aug 2026. It is kept as a historical record; do not follow its times. The current schedule is **11:00–14:00 IST Mon–Fri** (block shape 11:00–11:50 concept · 11:50–13:20 lab · 13:20–13:45 quiz · 13:45–14:00 log), and **Day 1 actually happened on Fri 7 Aug 2026**, not Mon 10 Aug. Every "09:00" and "Monday 10 August" reference below is stale. Authoritative source: `curriculum.md` and `aiml-dashboard-state.json`.
+
 > This ran as an automated task, so the interactive parts (pasting terminal output, answering the baseline questions, giving me your Udemy course title) couldn't happen live. Everything below is written so you can work it yourself on Saturday. Paste any failures into the next session and I'll diagnose them. Sections marked **[NEEDS YOU]** stay open until you come back with the answer.
 
 ---

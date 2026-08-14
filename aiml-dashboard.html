@@ -119,7 +119,7 @@
 
   <header class="hero">
     <h1>AI/ML Engineer Track — Harsh Singh</h1>
-    <div class="sub">Python fresher → ship-capable AI/ML Engineer · 26 weeks · 3 hrs/day (11:00–14:00 IST, Mon–Fri) + Saturday exam</div>
+    <div class="sub">Complete beginner → confident in Python, then ML · RESTARTED 10 Aug · Phase 1: Python from zero · 8 weeks · 11:00–14:00 IST Mon–Fri</div>
     <div class="hero-grid">
       <div class="hero-stat"><div class="label">Overall progress</div><div class="value" id="stat-overall">0% <small>of curriculum</small></div></div>
       <div class="hero-stat"><div class="label">Days into plan</div><div class="value" id="stat-days">0 <small>/ 180</small></div></div>
@@ -127,14 +127,14 @@
       <div class="hero-stat"><div class="label">ML readiness</div><div class="value" id="stat-readiness">0% <small>composite</small></div></div>
     </div>
     <div class="timeline">
-      <div class="meta">10 Aug '26</div>
+      <div class="meta">11 Aug '26</div>
       <div class="track">
         <div class="fill" id="tl-fill" style="width:0%"></div>
         <div class="marker" id="tl-today" style="left:0%"><span class="lbl">Today</span></div>
-        <div class="marker" style="left:49%; background:#fbbf24"><span class="lbl">Job-ready · M1</span></div>
-        <div class="marker" style="left:100%; background:#34d399"><span class="lbl">ML Engineer · M2</span></div>
+        <div class="marker" style="left:21%; background:#fbbf24"><span class="lbl">Exam 1 · 22 Aug</span></div>
+        <div class="marker" style="left:100%; background:#34d399"><span class="lbl">Phase 1 gate</span></div>
       </div>
-      <div class="meta" style="text-align:right">6 Feb '27</div>
+      <div class="meta" style="text-align:right">3 Oct '26</div>
     </div>
   </header>
 
@@ -167,7 +167,7 @@
 
   <div class="grid">
     <div class="card">
-      <h2>Curriculum — 6 Phases</h2>
+      <h2>Curriculum — Phase 1 live, rest re-planned in Sept</h2>
       <div class="muted">A phase unlocks when the previous one hits 90% and its gate exam scores ≥ 70 with its project shipped.</div>
       <div id="phases"></div>
     </div>
@@ -180,18 +180,18 @@
 
   <div class="grid">
     <div class="card">
-      <h2>Weekly Exam Trend</h2>
-      <div class="muted">Saturday exam scores. Pass gate 70. Target ≥ 80 sustained.</div>
+      <h2>Saturday Exam Trend (pass 60)</h2>
+      <div class="muted">Saturday exam scores. Pass gate 60, open-notes. The score measures the teaching.</div>
       <div class="chart-box short"><canvas id="trend"></canvas></div>
     </div>
     <div class="card">
-      <h2>Recent Daily Quiz Log</h2>
-      <div class="muted">Written by the 11:00 daily tutor session.</div>
+      <h2>Recent Daily Check Log</h2>
+      <div class="muted">Written by the 11:00 daily tutor session. 5 questions, /50.</div>
       <table class="quiz" id="quiz-table">
         <thead><tr><th>Date</th><th>Topic</th><th>Score</th></tr></thead>
         <tbody></tbody>
       </table>
-      <div id="quiz-empty" class="empty">No quizzes recorded yet — Friday 7 Aug is Day 1.</div>
+      <div id="quiz-empty" class="empty">No sessions logged yet — Day 1 restarts Tue 11 Aug.</div>
     </div>
   </div>
 
@@ -202,11 +202,11 @@ const STATE = {
   "student": {
     "name": "Harsh Singh",
     "track": "AI/ML Engineer",
-    "startDate": "2026-08-07",
-    "milestone1Date": "2026-11-06",
-    "targetDate": "2027-02-05",
-    "finalExamDate": "2027-02-06",
-    "totalDays": 180,
+    "startDate": "2026-08-11",
+    "milestone1Date": null,
+    "targetDate": null,
+    "finalExamDate": null,
+    "totalDays": 53,
     "sessionHours": 3,
     "sessionWindow": "11:00-14:00 IST, Mon-Fri",
     "examWindow": "12:00-13:00 IST, Saturday",
@@ -215,15 +215,19 @@ const STATE = {
       "to": "2026-08-07"
     },
     "backgroundNote": "Senior .NET/Azure engineering leader. Complete fresher in Python and ML. Strong on architecture, DevOps, cloud, and systems thinking - weak on Python syntax, math notation, and ML theory. Teach accordingly: skip generic 'what is an API' framing, do NOT skip Python or math fundamentals.",
-    "scheduleNote": "Weekday window moved 09:00-12:00 -> 11:00-14:00 IST permanently on 7 Aug 2026. Day 1 brought forward from Mon 10 Aug to Fri 7 Aug. Week 1 = Fri 7 -> Thu 13 Aug, Fri 14 Aug buffer/review. Exam 1 Sat 15 Aug and all downstream dates/milestones unchanged."
+    "scheduleNote": "Weekday window 11:00-14:00 IST. New daily shape: 40min teach ONE concept / 100min guided practice / 25min recap / 15min 5-question check. Every 5th day is a practice day with no new concept. Saturday exam is 30min, 10 questions, open-notes, pass 60. Exam 1 moved from Sat 15 Aug to Sat 22 Aug covering D1-D9. Sat 15 Aug has NO exam.",
+    "phase1EndDate": "2026-09-25",
+    "phase1GateExam": "2026-09-26",
+    "compressionNote": "COMPRESSED 14 Aug 2026 on evidence, not on request. Three scored checks in three days: 50/50, 50/50, 48/50, with three consecutive unaided writes and predictions given before running. The 8-week/39-session plan was calibrated on 10 Aug for a beginner who had just been overwhelmed; that is no longer the student who is turning up. Changes: (1) the six standalone practice days (old D9, D14, D19, D24, D29, D34) are folded into the content days rather than run separately; (2) D3 and D3b were already merged into one session on 14 Aug; (3) Phase 1 goes 39 -> 33 sessions, ending Fri 25 Sep with the gate exam Sat 26 Sep; (4) the Phase 2-6 re-plan is pulled forward from 5 Sep to 22 Aug so pandas and real ML arrive sooner. NOT changed: one concept per day, practice-heavy sessions, no forward references, and a scored check before any axis moves. The pace increases; the guardrails that fixed the first attempt stay.",
+    "restartNote": "RESTART 10 Aug 2026. First attempt moved too fast: D1 taught execution model + names/objects + mutability then quizzed same morning; W1D2 stacked __defaults__/LEGB/closures/*args into one block and fired after the window, never taught live. Phase 1 rebuilt 4 -> 8 weeks, ONE concept per day, practice-heavy. Day 1 restarts Tue 11 Aug 2026. The 7 Aug score of 57 is ARCHIVED as a baseline data point, not a quiz score. Phases 2-6 keep their content; their dates and the milestone dates are SUSPENDED pending a re-plan in early Sept using 4 weeks of real data."
   },
   "skillAxes": {
     "python": {
-      "current": 8.5,
+      "current": 11.5,
       "target": 90,
       "industryAvg": 88,
       "label": "Python",
-      "baselineNote": "Never written a line (Q4). Q5 mutation/aliasing wrong. 15 was generous."
+      "baselineNote": "Evidenced by two scored checks: D1 50/50 as amended 14 Aug (runs a .py file, print(), SyntaxError vs NameError) and D2 50/50 on 14 Aug (what = does, name has no type / value does, assignment copies a value rather than linking names, keyword vs builtin, both illegal-name cases are SyntaxError). Two consecutive unaided writes with no example to copy. Band 21-40 not yet claimed: everything demonstrated so far is assignment, print and type() - no decisions, collections, loops or functions have been taught."
     },
     "mathStats": {
       "current": 18,
@@ -278,65 +282,65 @@ const STATE = {
   "phases": [
     {
       "id": 1,
-      "name": "Python & Engineering Foundations",
-      "weeks": "Wk 1-4",
-      "days": 20,
-      "hours": 60,
-      "progress": 5.0,
+      "name": "Python From Zero",
+      "weeks": "Wk 1-6 (compressed 14 Aug)",
+      "days": 33,
+      "hours": 99,
+      "progress": 9.09,
       "status": "in_progress",
-      "outcomes": "Idiomatic typed Python · OOP · Git · NumPy · pandas · first EDA notebook"
+      "outcomes": "Run/read/write/debug Python unaided - values, decisions, lists, loops, functions, scope, dicts, files, errors, classes, git. No NumPy/pandas/ML in this phase."
     },
     {
       "id": 2,
-      "name": "Math for ML + Data Work",
-      "weeks": "Wk 5-7",
-      "days": 15,
-      "hours": 45,
+      "name": "Data Work (NumPy + pandas)",
+      "weeks": "TBD",
+      "days": 0,
+      "hours": 0,
       "progress": 0,
       "status": "locked",
-      "outcomes": "Linear algebra · calculus & optimisation · probability & stats · Project P1 ships"
+      "outcomes": "RE-PLAN PENDING - scheduled for early Sept 2026 using 4 weeks of real learning-rate data."
     },
     {
       "id": 3,
-      "name": "Classical Machine Learning",
-      "weeks": "Wk 8-13",
-      "days": 30,
-      "hours": 90,
+      "name": "Math for ML",
+      "weeks": "TBD",
+      "days": 0,
+      "hours": 0,
       "progress": 0,
       "status": "locked",
-      "milestone": true,
-      "outcomes": "Regression · classification · ensembles · pipelines · FastAPI+Docker deploy · P2 ships · MILESTONE 1"
+      "outcomes": "RE-PLAN PENDING."
     },
     {
       "id": 4,
-      "name": "Deep Learning (PyTorch)",
-      "weeks": "Wk 14-18",
-      "days": 25,
-      "hours": 75,
+      "name": "Classical Machine Learning",
+      "weeks": "TBD",
+      "days": 0,
+      "hours": 0,
       "progress": 0,
       "status": "locked",
-      "outcomes": "Backprop from scratch · CNNs · transformers · fine-tuning · P3 ships"
+      "milestone": true,
+      "outcomes": "RE-PLAN PENDING. Content unchanged; dates suspended."
     },
     {
       "id": 5,
-      "name": "LLM & GenAI Engineering",
-      "weeks": "Wk 19-22",
-      "days": 20,
-      "hours": 60,
+      "name": "Deep Learning + LLM/GenAI",
+      "weeks": "TBD",
+      "days": 0,
+      "hours": 0,
       "progress": 0,
       "status": "locked",
-      "outcomes": "Prompting · RAG · agents & MCP · evals & guardrails · LLMOps · P4 ships"
+      "outcomes": "RE-PLAN PENDING."
     },
     {
       "id": 6,
       "name": "MLOps, Capstone & Interview",
-      "weeks": "Wk 23-26",
-      "days": 20,
-      "hours": 60,
+      "weeks": "TBD",
+      "days": 0,
+      "hours": 0,
       "progress": 0,
       "status": "locked",
       "milestone": true,
-      "outcomes": "MLflow · CI/CD · drift monitoring · system design drills · Capstone P5 · MILESTONE 2"
+      "outcomes": "RE-PLAN PENDING."
     }
   ],
   "projects": [
@@ -378,27 +382,27 @@ const STATE = {
   ],
   "criteriaMilestone1": [
     {
-      "label": "All 8 skill axes ≥ 55",
+      "label": "Phase 1 complete: 39 sessions taught live",
       "done": false
     },
     {
-      "label": "Python + Data + Classical ML axes ≥ 70",
+      "label": "Write a small program unaided, no example to copy",
       "done": false
     },
     {
-      "label": "P1 and P2 shipped publicly on GitHub",
+      "label": "Read a traceback and fix the bug yourself",
       "done": false
     },
     {
-      "label": "Can build → evaluate → deploy a model unaided",
+      "label": "Phase 1 capstone shipped to GitHub",
       "done": false
     },
     {
-      "label": "Rolling 4-week exam average ≥ 75",
+      "label": "Phase 1 gate exam (3 Oct) >= 60",
       "done": false
     },
     {
-      "label": "Curriculum ≥ 50% complete",
+      "label": "Re-plan for Phases 2-6 written (due 5 Sep)",
       "done": false
     }
   ],
@@ -438,34 +442,80 @@ const STATE = {
   ],
   "quizHistory": [
     {
-      "date": "2026-08-07",
-      "week": 1,
-      "day": 1,
-      "topic": "Python execution model, names vs objects, mutability, types, operators",
-      "score": 57,
+      "date": "2026-08-11",
+      "day": "W1D1",
+      "topic": "Running Python",
+      "score": 50,
+      "max": 50,
+      "band": "landed",
       "breakdown": {
-        "mcq": "30/30",
-        "shortAnswer": "15/36",
-        "codeDebug": "12/14",
-        "applied": "0/20"
+        "recall": "16/16",
+        "trace": "20/20",
+        "write": "14/14"
       },
-      "note": "Perfect on recognition (MCQ 30/30). Lost 32 marks by declining Q7 and Q10 outright. Q7 was taught explicitly in today's concept block. Not a comprehension failure."
+      "note": "AMENDED 14 Aug 2026: 47 -> 50. Q1 was originally docked 3 for describing pass 2 as 'goes line by line for NameErrors' rather than naming it as execution. Harsh challenged this on 14 Aug and the challenge is upheld. The deduction was for how he characterised pass 2, not for the mechanism - and Q3 and Q4 on the same paper, plus his recap Scenario 2, all demonstrated he knew lines above a failure had genuinely run and printed. The standing rule adopted 12 Aug (mark the mechanism, never the phrasing) applied to this paper gives 8/8. No downstream effect: 47 and 50 are both in the 40-50 band, so the axis movement was +1.0 either way and no other number changes. Original marking retained in quizzes/2026-08-11.md with the amendment appended."
+    },
+    {
+      "date": "2026-08-14",
+      "day": "D2",
+      "topic": "Variables and names",
+      "score": 50,
+      "max": 50,
+      "band": "landed",
+      "breakdown": {
+        "recall": "16/16",
+        "trace": "20/20",
+        "write": "14/14"
+      },
+      "note": "Owed check, deferred from 12 Aug (session ran to 00:09) and again from 13 Aug (session never fired) - both tutor-side. Sat 14 Aug. Full marks. Q1 probed the 12 Aug Ex 7 miss (he had predicted two different error types for two illegal names); cleared - named SyntaxError and the keyword reason. Q3 required the mechanism as well as the output and he gave it: assignment hands over a value, it does not link two names. Q5 unaided write ran clean first try, snake_case unprompted. One correction needed in the recap block: he said 'python decides the type of the variable' - corrected to the name has no type, the value does; he then predicted a reassignment probe correctly. Corrected before the check, cost no marks."
+    },
+    {
+      "date": "2026-08-14",
+      "day": "D3+D3b",
+      "topic": "Numbers and arithmetic",
+      "score": 48,
+      "max": 50,
+      "band": "landed",
+      "breakdown": {
+        "recall": "6/8",
+        "trace": "28/28",
+        "write": "14/14"
+      },
+      "note": "Two curriculum days merged into one session: D3 (int/float, contagion, / always floats, float approximation) plus D3b (//, %, **, precedence). Q1 -2: gave the finite-precision mechanism correctly but did not answer the second half (money should not be a float). Q2-Q4 perfect, including -7 // 2 = -4 (Python floors toward negative infinity where C# truncates toward zero) and 2 ** 3 ** 2 = 512 (right-associative). Q5 third consecutive unaided write, correct on the trap of costing from truncated minutes rather than raw seconds. Sat only after he pushed hard to have the check waived and the marks awarded outright; the check was not waived, and the 48 he then scored is the evidence the plan is now too slow."
     }
   ],
   "examHistory": [],
   "weeklyAvg": [],
   "streak": {
-    "current": 1,
-    "longest": 1
+    "current": 2,
+    "longest": 2
   },
   "meta": {
-    "lastUpdated": "2026-08-07",
-    "lastSession": "2026-08-07 W1D1",
+    "lastUpdated": "2026-08-14",
+    "lastSession": "2026-08-14 - D2 check closed at 50/50 (owed from 12 Aug); D1 amended 47 -> 50 on an upheld challenge; D3 AND D3b both taught, practised (8/8 exercises) and checked at 48/50. Three sessions of content delivered in one day. Phase 1 compressed 39 -> 33 sessions on the evidence.",
     "currentWeek": 1,
     "currentPhase": 1,
     "baselineTaken": "2026-08-07",
     "repo": "https://github.com/harshsingh0601/aiml-journey",
-    "lastCommit": "f7e9b0f"
+    "restartDate": "2026-08-11",
+    "nextSession": "2026-08-17 (Mon) - D4 Strings: quotes, concatenation, f-strings, len(), indexing, and the string methods actually worth knowing. Includes str() properly, which he reached for unprompted on 14 Aug. D3b was NOT deferred - it was taught and checked on 14 Aug, so the track is now back on the calendar rather than a day behind. Sat 15 Aug has NO exam. Exam 1 remains Sat 22 Aug, covering D1-D8 on the compressed plan.",
+    "replanDue": "2026-08-22",
+    "studentPreference": "SET BY HARSH 14 Aug 2026, standing rule. He is a working professional with office, household and family responsibilities - not a student. He starts at 11:00 because it is the quietest part of his day, but he answers in gaps and may continue in the evening or between office tasks. THE TUTOR MUST NOT: flag long gaps between answers, announce that the window has closed, offer to park or defer material because of the clock, or compress/skip curriculum to fit 3 hours. Deliver the curriculum serially and completely, in order; he sets the pace. Deferrals are only acceptable when a concept is genuinely too big for one day (a teaching judgement), never because of elapsed time. The 12 Aug midnight finish was a tutor-side sequencing failure, not evidence that he needs protecting from long sessions.",
+    "remediation": "NONE OUTSTANDING as of 14 Aug. The pass-2 item was cleared 12 Aug. The owed D2 check was sat on 14 Aug and scored 50/50, which also cleared the 12 Aug Ex 7 miss (both illegal-name cases are SyntaxError) - it was the first question asked. One live correction on 14 Aug: 'python decides the type of the variable' -> the name has no type, the value does. Corrected in the recap block and re-probed successfully.",
+    "schedulingDefect": "13 Aug: the scheduled run did not fire at all - no session file, no quiz, state.json untouched. FOURTH consecutive scheduling failure (10 Aug fired 14:26; 11 Aug fired 11:42; 12 Aug aborted on a missing folder mount). 14 Aug: also did not fire on schedule; Harsh triggered it manually and the folder again needed connecting mid-session, costing the first 37 min of the window. Two distinct open defects: (a) the task is not firing reliably at 11:00 IST, (b) /Users/mansi/Documents/aiml-track is not connected on run. Both tutor-side; per rubric neither counts against the streak. Cost so far: one whole session (13 Aug) and roughly 2.5 hrs of window across 10-14 Aug.",
+    "gitRule": "STANDING RULE set 14 Aug 2026 - THE TUTOR MUST NEVER RUN ANY GIT COMMAND AGAINST /Users/mansi/Documents/aiml-track. Not commit, not add, and NOT status. Root cause finally identified on 14 Aug: `git status` is not read-only - it acquires .git/index.lock to refresh the index. The sandbox reaches the folder through a mount that cannot unlink the file afterwards ('Operation not permitted'), so the lock is stranded and every later git command fails with 'Another git process seems to be running'. This is the same mechanism behind the three stale lock files found on 11 Aug, previously misattributed to an interrupted process on 7 Aug. The tutor writes files; Harsh runs git from his own terminal. If a lock is stranded, the tutor must say so and give him `rm -f .git/index.lock` rather than attempting to fix it.",
+    "gitNote": "D1 commit 300c91d pushed 11 Aug after clearing three stale .git lock files left by an interrupted process on 7 Aug. Streak credited. Not a Harsh-side failure."
+  },
+  "archivedBaseline": {
+    "date": "2026-08-07",
+    "score": 57,
+    "breakdown": {
+      "mcq": "30/30",
+      "shortAnswer": "15/36",
+      "codeDebug": "12/14",
+      "applied": "0/20"
+    },
+    "note": "Archived on restart. Counted as a BASELINE data point, not a quiz score. Recognition was perfect (30/30 MCQ); 32 marks were lost to blank answers on material taught the same morning. Re-reading it after the restart: the material was too dense for day one, so the blanks are a curriculum failure, not a discipline failure."
   }
 };
 
@@ -487,6 +537,10 @@ function computeReadiness() {
   return Math.round((skillScore * 0.45 + phaseScore * 0.35 + projScore * 0.20) * 100);
 }
 function scoreClass(s) { return s >= 80 ? 'score-good' : (s >= 70 ? 'score-mid' : 'score-bad'); }
+// Daily checks are marked out of 50, Saturday exams out of 100. scoreClass() expects a
+// percentage, so convert before calling it - passing a raw /50 score made every daily check
+// render red regardless of how good it was. Fixed 14 Aug 2026.
+function pctOf(q) { return Math.round((q.score / (q.max || 50)) * 100); }
 
 document.getElementById("stat-overall").innerHTML   = computeOverall() + '% <small>of curriculum</small>';
 document.getElementById("stat-days").innerHTML      = daysIntoPlan() + ' <small>/ ' + STATE.student.totalDays + '</small>';
@@ -594,7 +648,7 @@ new Chart(document.getElementById('trend'), {
     datasets: [
       { label: 'Saturday exam score', data: examScores.length ? examScores : [null,null,null,null,null,null,null,null],
         borderColor: '#059669', backgroundColor: 'rgba(5,150,105,0.10)', tension: 0.3, spanGaps: false, pointBackgroundColor: '#059669' },
-      { label: 'Pass gate (70)', data: Array(Math.max(8, examScores.length)).fill(70), borderColor: '#b45309', borderDash: [4,4], borderWidth: 1.5, pointRadius: 0 },
+      { label: 'Pass gate (60)', data: Array(Math.max(8, examScores.length)).fill(60), borderColor: '#b45309', borderDash: [4,4], borderWidth: 1.5, pointRadius: 0 },
       { label: 'Target (80)', data: Array(Math.max(8, examScores.length)).fill(80), borderColor: '#0891b2', borderDash: [2,4], borderWidth: 1.5, pointRadius: 0 }
     ]
   },
@@ -613,7 +667,8 @@ if (STATE.quizHistory.length) {
   STATE.quizHistory.slice(-10).reverse().forEach(q => {
     tbody.insertAdjacentHTML('beforeend',
       '<tr><td>' + q.date + '</td><td>' + q.topic + '</td>' +
-      '<td class="' + scoreClass(q.score) + '">' + q.score + '%</td></tr>');
+      '<td class="' + scoreClass(pctOf(q)) + '">' + q.score + ' / ' + (q.max || 50) +
+      ' <small>(' + pctOf(q) + '%)</small></td></tr>');
   });
 } else {
   document.getElementById("quiz-table").style.display = 'none';

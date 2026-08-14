@@ -1,168 +1,86 @@
 # AI/ML Engineer Track — Harsh Singh
 
-> ## 🔄 RESTART · 10 Aug 2026
->
-> **The first attempt went too fast and is being replaced.** Day 1 taught the execution model, names-vs-objects and mutability and then quizzed on it the same morning. W1D2 stacked `__defaults__`, LEGB, late-binding closures and `*args`/`**kwargs` into one 50-minute block — and fired after the session window, so it was never taught live at all. That is roughly four days of material compressed into two, half of it delivered as reading. The problem was the plan, not the student.
->
-> **What changes:** Phase 1 goes from 4 weeks to **8 weeks**, at **one concept per day**. The daily shape becomes mostly practice. Day 1 restarts from zero on **Tue 11 Aug 2026**. The 57 from 7 Aug is archived as a baseline data point and no longer counts as a quiz score.
->
-> **What is deliberately NOT decided yet:** Phases 2–6 keep their content but their dates are **provisional and will be re-planned** once we have 3–4 genuinely-taught sessions and can measure the real learning rate. Every date from Phase 2 onward in this file should be read as "roughly, subject to change", not as a commitment. Milestone dates are suspended until that re-plan.
+**Goal:** ship-capable AI/ML Engineer (build, train, deploy, and operate models) in 26 weeks.
+**Starting point:** strong .NET / architecture background, **fresher in Python and ML**.
+**Format:** Mon–Fri **11:00–14:00 IST** (3 hrs) tutor session + Saturday 12:00–13:00 IST exam.
+**Orientation day:** Fri 7 Aug 2026 (morning) — environment setup.
+**Real Day 1:** **Fri 7 Aug 2026, 11:00 IST** *(brought forward from Mon 10 Aug at Harsh's request)*. **Final day:** Fri 5 Feb 2027. **Final exam:** Sat 6 Feb 2027.
 
-> ## ⏩ COMPRESSED · 14 Aug 2026 — Phase 1 goes 39 → 33 sessions
->
-> **Three scored checks in three days: 50/50, 50/50, 48/50.** Three consecutive unaided writes,
-> predictions given before running, and on 14 Aug two full curriculum days (D3 *and* D3b) taught,
-> practised and checked in a single session.
->
-> The 8-week plan was written on 10 Aug for a beginner who had just been overwhelmed. That is no
-> longer who turns up. Harsh pushed for a faster pace and for the 14 Aug check to be waived; the
-> check was **not** waived — but he sat it, scored 48, and the score is what justifies this change.
-> The pace moves on evidence, never on request.
->
-> **What changes:**
-> 1. The six standalone **practice days** (old D9, D14, D19, D24, D29, D34) are folded into the
->    content days rather than run separately.
-> 2. **D3 + D3b merged**, already done on 14 Aug.
-> 3. Phase 1 now **33 sessions**, ending **Fri 25 Sep**, gate exam **Sat 26 Sep** (was 2/3 Oct).
-> 4. The **Phase 2–6 re-plan moves forward from 5 Sep to 22 Aug**, so pandas and real ML arrive
->    sooner. This is the stated goal — Python is the tool, not the destination.
->
-> **What does NOT change:** one concept per day, practice-heavy sessions, no forward references,
-> no jargon before its plain-English definition, and **no axis moves without a scored check**.
-> The pace increases; the guardrails that fixed the first attempt stay exactly as they are.
->
-> *Day numbering below is unchanged for traceability. Practice days are absorbed, not deleted.*
+> **Schedule amendment · 7 Aug 2026.** The weekday window moved from 09:00–12:00 to **11:00–14:00 IST**, permanently. Saturday exams stay at 12:00–13:00. Day 1 was brought forward to Fri 7 Aug; Week 1 therefore runs Fri 7 → Thu 13 Aug with **Fri 14 Aug as a buffer/review day**. Exam 1 remains Sat 15 Aug. Every subsequent week, exam date and milestone date is unchanged.
+**Milestone 1 (job-ready junior/associate ML engineer):** Fri 6 Nov 2026 (end of Week 13).
+**Milestone 2 (AI/ML Engineer, market-validated):** Fri 5 Feb 2027 (end of Week 26).
 
-**Goal:** ship-capable AI/ML Engineer — build, train, deploy and operate models.
-**Starting point:** strong .NET / Azure / architecture background. **Genuine beginner in Python and ML** — has not written Python before.
-**Format:** Mon–Fri **11:00–14:00 IST** (3 hrs) + Saturday exam 12:00–13:00 IST.
-**Day 1 (restart):** **Tue 11 Aug 2026, 11:00 IST**.
-**Phase 1 ends:** Fri 2 Oct 2026 · **Phase 1 gate exam:** Sat 3 Oct 2026.
-**Everything after that:** to be re-planned in early September.
+**Total:** 130 weekday sessions × 3 hrs = **390 hrs** + 26 Saturday exams × 1 hr = **416 hrs**.
 
 ---
 
-## Daily session shape — REVISED
-
-The old shape was 50 min teaching → 90 min lab → 25 min quiz. Too much new material, too little practice, and a scored test every single day. New shape:
+## Daily session shape (Mon–Fri, 3 hrs)
 
 | Block | Time (IST) | What happens |
 |---|---|---|
-| **Teach** | 11:00–11:40 | **ONE** concept. One. Explained slowly, from the beginning, with worked examples typed out step by step. If it needs more than 40 minutes, it was too big for one day and gets split. |
-| **Practice** | 11:40–13:20 | You write code. I watch each step and correct it immediately. Small exercises, increasing difficulty, all on today's one concept. This is the biggest block on purpose — it is where the learning actually happens. |
-| **Recap** | 13:20–13:45 | We go back over what you built. You explain it back to me in your own words. Anything shaky gets re-taught right there. |
-| **Check** | 13:45–14:00 | **5 questions**, not 10. Low stakes. It measures the teaching, not you. |
+| Concept | 11:00–11:50 | Deep teaching of the day's topic. Diagrams, math worked by hand, "when would you use this". Ends with 3 reflection questions Harsh must answer. |
+| Lab | 11:50–13:20 | Runnable, hands-on code. Harsh types every line himself. Build → break → fix. |
+| Quiz | 13:20–13:45 | 10 questions (MCQ + short answer + 1 code-reading/debug question). Scored /100, strict grading. |
+| Log | 13:45–14:00 | Notes, commit to GitHub, dashboard update, tomorrow's preview. |
 
-**Rules for the tutor, not for you:**
+## Saturday exam shape (1 hr, 12:00–13:00 IST)
 
-- One concept per day. Never two. If today's concept isn't solid by 13:20, tomorrow repeats it — that is a normal outcome, not a failure.
-- No forward references. Nothing gets used in an example before the day it is taught.
-- No jargon without a plain-English definition first.
-- Every fifth day is a **practice day** — no new concept at all, just building with what you already have.
-- If you say "too fast", the session stops and backs up. No pushing on.
+25 questions on the week just finished + spaced repetition of all prior weeks:
+- 10 MCQ on this week
+- 6 MCQ cumulative (prior weeks)
+- 4 short-answer "explain the tradeoff"
+- 3 code-debug / code-output questions
+- 2 mini design questions ("how would you build…")
 
-## Saturday exam — REVISED
+Weighted: current week 40, cumulative retention 30, applied/design 30. **Pass gate = 70.**
 
-**30 minutes, 10 questions, open-notes.** Covers only material that was genuinely taught live and practised.
+## Gates (non-negotiable)
 
-- 5 recall questions on the past week
-- 3 "what does this code print" questions
-- 2 "write a small function that…" questions
-
-**Pass = 60.** Below 60 means the *teaching* missed, and the following Monday re-teaches the weakest two topics. There is no penalty to you for a low score — the score exists to tell me what to fix.
-
-## Gates
-
-- Exam < 60 → Monday is a re-teach day. No advancing.
-- No concept is marked complete until you can write code using it **without looking at my example**.
-- Every practice session ends with code committed to `aiml-journey`.
-- A day you didn't attend is simply moved, not lost. The plan bends; it doesn't break.
+- Weekly exam < 70 → Monday becomes a **remediation day**; the week's topics repeat before advancing.
+- Two consecutive exams < 70 → the phase is extended by one week and optional topics are cut.
+- A phase cannot be marked complete until its project is pushed publicly to GitHub with a README.
+- Every lab must end in committed, running code. No commit = the day is not logged.
 
 ---
 
-# PHASE 1 · Python From Zero
-**Weeks 1–8 · 11 Aug – 2 Oct 2026 · 39 sessions · 117 hrs**
-*Outcome: you can read Python, write Python, debug Python, and structure a small program — without help. That is the whole goal. No NumPy, no pandas, no ML in this phase.*
+# PHASE 1 · Python & Engineering Foundations
+**Weeks 1–4 · 7 Aug – 4 Sep 2026 · 60 hrs**
+*Outcome: write idiomatic, tested, typed Python; comfortable with NumPy and pandas; first EDA notebook shipped.*
 
-**Deliberately deferred out of Phase 1** (they were in the old 4-week version and were far too early): decorators, generators, context managers, type hints, abstract base classes, algorithms/big-O, NumPy and pandas. These get a proper home in the September re-plan.
+### Week 1 (7–13 Aug) — Python core
+- **D1 Fri 7 Aug** — Environment (Python 3.12, uv, VS Code, Jupyter), Python execution model, variables, types, operators, REPL vs script
+- **D2 Mon 10 Aug** — Control flow, loops, functions, arguments, scope, `*args`/`**kwargs`, pure functions
+- **D3 Tue 11 Aug** — list / tuple / dict / set, mutability, comprehensions, unpacking
+- **D4 Wed 12 Aug** — Strings & formatting, file I/O, exceptions, modules & packages, `__main__`
+- **D5 Thu 13 Aug** — Idiomatic Python (`enumerate`, `zip`, slicing, `pathlib`), mini CLI project
+- **Fri 14 Aug** — buffer / review day (no new topic, no quiz)
+- **Exam 1 · Sat 15 Aug**
 
-### Week 1 (Tue 11 – Fri 14 Aug) — Running code and holding values
-Short first week — 4 sessions.
+### Week 2 (17–21 Aug) — OOP, tooling, Git
+- **D1** Classes, instances, attributes, `__init__`, dunder methods
+- **D2** Inheritance vs composition, ABCs, `dataclass`, `Enum`
+- **D3** Iterators, generators, decorators, context managers
+- **D4** Type hints + mypy, virtual envs with uv, project layout, `pytest` basics
+- **D5** Git & GitHub workflow, branching, PRs, README; push the Week-1 CLI project
+- **Exam 2 · Sat 22 Aug**
 
-- **D1 · Tue 11 Aug — Running Python.** The terminal, the REPL, writing and running a `.py` file, `print()`, and how to read an error message. Nothing else. By 14:00 you will have run your own file and deliberately broken it three times.
-- **D2 · Wed 12 Aug — Variables and names.** What `=` actually does. Naming rules and conventions. `type()`. Reassignment.
-- **D3 · Thu 13 Aug — Numbers and arithmetic.** `int` vs `float`, `+ - * /`, `//`, `%`, `**`, precedence, and integer division surprises.
-- **D4 · Fri 14 Aug — Strings.** Quotes, concatenation, f-strings, `len()`, indexing, and the handful of string methods you'll actually use.
+### Week 3 (24–28 Aug) — Algorithms + NumPy
+- **D1** Big-O, arrays vs linked structures, why complexity matters in ML pipelines
+- **D2** Sorting, searching, hashing, recursion, memoisation
+- **D3** NumPy `ndarray`: dtype, shape, indexing, slicing, views vs copies
+- **D4** Broadcasting, axes, reshaping, linear-algebra ops, random number generation & seeds
+- **D5** Vectorisation vs loops (benchmark it), implement k-NN in pure NumPy
+- **Exam 3 · Sat 29 Aug**
 
-**Sat 15 Aug — NO EXAM.** Optional 30-minute self-review; nothing scored.
-
-### Week 2 (Mon 17 – Fri 21 Aug) — Decisions and lists
-- **D5 · Mon 17 — Booleans and comparison.** `True`/`False`, `==` vs `=`, `!=`, `<`/`>`, `and`/`or`/`not`, truthiness.
-- **D6 · Tue 18 — `if` / `elif` / `else`.** Indentation as real syntax. Nesting. Common mistakes.
-- **D7 · Wed 19 — Lists.** Creating, indexing, slicing, `append`, `remove`, `len`, iterating by index.
-- **D8 · Thu 20 — Mutability: names vs objects.** *(The topic that sank Day 1 — now arriving on day eight, with seven days of groundwork under it.)* The box-and-label model, aliasing, copying, why two names can point at one list.
-- **D9 · Fri 21 — Practice day.** No new concept. Build a small text-menu program using everything from D1–D8.
-
-**Sat 22 Aug — EXAM 1** · covers D1–D9.
-
-### Week 3 (Mon 24 – Fri 28 Aug) — Repetition
-- **D10 · Mon 24 — `for` loops over lists.**
-- **D11 · Tue 25 — `range()` and the three loop patterns:** accumulate, count, filter.
-- **D12 · Wed 26 — `while` loops,** `break`, `continue`, and infinite-loop debugging.
-- **D13 · Thu 27 — Nested loops** and how to trace one on paper.
-- **D14 · Fri 28 — Practice day.**
-
-**Sat 29 Aug — EXAM 2.**
-
-### Week 4 (Mon 31 Aug – Fri 4 Sep) — Functions, slowly
-- **D15 · Mon 31 — What a function is.** `def`, calling it, `return`. One idea, all day.
-- **D16 · Tue 1 Sep — Parameters and arguments.** Positional arguments only.
-- **D17 · Wed 2 — `return` vs `print`.** An entire day on the single most common beginner confusion, and worth it.
-- **D18 · Thu 3 — Default and keyword arguments.**
-- **D19 · Fri 4 — Practice day.**
-
-**Sat 5 Sep — EXAM 3.** *(Phase 2 onward gets re-planned this weekend, using your first four weeks of real data.)*
-
-### Week 5 (Mon 7 – Fri 11 Sep) — Scope and structure
-- **D20 · Mon 7 — Local vs global scope.** The simple version. No LEGB acronym, no closures.
-- **D21 · Tue 8 — Functions calling functions;** breaking one problem into three small functions.
-- **D22 · Wed 9 — Passing mutable objects into functions,** and the mutable-default-argument trap. *(This is D8 seen through a function boundary — the exact thing W1D2 tried to teach on day two.)*
-- **D23 · Thu 10 — Your own module.** Writing `helpers.py` and importing from it.
-- **D24 · Fri 11 — Practice day.**
-
-**Sat 12 Sep — EXAM 4.**
-
-### Week 6 (Mon 14 – Fri 18 Sep) — The other collections
-- **D25 · Mon 14 — Dictionaries.** Keys, values, lookup, adding, updating.
-- **D26 · Tue 15 — Iterating dictionaries;** when a dict beats a list.
-- **D27 · Wed 16 — Tuples and unpacking.**
-- **D28 · Thu 17 — Sets and membership testing.**
-- **D29 · Fri 18 — Practice day.**
-
-**Sat 19 Sep — EXAM 5.**
-
-### Week 7 (Mon 21 – Fri 25 Sep) — Python that touches the real world
-- **D30 · Mon 21 — Reading and writing files.**
-- **D31 · Tue 22 — Errors and exceptions.** `try`/`except`, and reading a traceback properly.
-- **D32 · Wed 23 — List comprehensions.** Introduced *only* now, once loops are automatic.
-- **D33 · Thu 24 — The standard library:** `math`, `random`, `datetime`, `pathlib`.
-- **D34 · Fri 25 — Practice day.**
-
-**Sat 26 Sep — EXAM 6.**
-
-### Week 8 (Mon 28 Sep – Fri 2 Oct) — Structuring a program
-- **D35 · Mon 28 — Classes, part 1.** What an object is — bridged from C#, which you already know.
-- **D36 · Tue 29 — Classes, part 2.** `__init__` and methods.
-- **D37 · Wed 30 — Git and GitHub properly.** Branches, commits, what a good commit message says.
-- **D38 · Thu 1 Oct — Virtual environments and packages.** `uv`, installing, project layout.
-- **D39 · Fri 2 Oct — PHASE 1 CAPSTONE.** Build one complete small program from scratch, alone, and ship it to GitHub with a README.
-
-**Sat 3 Oct — EXAM 7 · PHASE 1 GATE.** Pass = 60. Then Phase 2 begins, on a plan written with eight weeks of evidence behind it.
+### Week 4 (31 Aug – 4 Sep) — pandas & visualisation
+- **D1** Series & DataFrame, indexing (`loc`/`iloc`), selection, dtypes
+- **D2** Cleaning: missing values, duplicates, outliers, type coercion, categorical data
+- **D3** `groupby`, merge/join, pivot, reshaping, time-series basics
+- **D4** Matplotlib fundamentals + seaborn; what chart for what question; how to lie with axes
+- **D5** Phase 1 wrap: end-to-end EDA notebook on a real dataset; notebook hygiene & reproducibility
+- **Exam 4 · Sat 5 Sep** *(Phase 1 gate — must score ≥ 70 to unlock Phase 2)*
 
 ---
-
-> **Note on everything below.** Phases 2–6 keep their content and their ordering, both of which are sound. Their **dates are stale** — they were written against the old 4-week Phase 1 and have not been shifted. They will be rewritten in the September re-plan. Read them as the destination, not the timetable.
-
 
 # PHASE 2 · Math for ML + Data Work
 **Weeks 5–7 · 7 – 25 Sep 2026 · 45 hrs**

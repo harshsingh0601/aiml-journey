@@ -1,12 +1,14 @@
 # Resources
 
-Primary teaching happens live in the 09:00 session. These are the reference and reinforcement layer — use them *after* the session, not instead of it.
+Primary teaching happens live in the 11:00–14:00 IST session (Mon–Fri). These are the reference and reinforcement layer — use them *after* the session, not instead of it.
 
 ## Udemy
 
 *Machine Learning A-Z [2026]: ML, DL, AI with AWS, Python & R* (Eremenko / de Ponteves). Mapped week-by-week in the **Udemy mapping** section at the end of this file.
 
 Short version: it is a strong reinforcement layer for Weeks 8–13 and Week 24, partial for Weeks 14–16 and 23, and covers nothing at all in Weeks 1–3, 5–7 and 17–22. It is **not** the video spine — the curriculum remains self-contained, and the course supplements it.
+
+You also own **202 Udemy courses, 32 of them Python-related**. All 32 were audited on 9 Aug 2026 — see **Your full Udemy Python library — triage** near the end of this file. Verdict: **four courses are in, twenty-eight are out**, three more are useful only as project-brief sources. Read that section before opening any of them.
 
 ## Phase 1 — Python & foundations
 
@@ -113,12 +115,72 @@ Three things to know going in:
 ### How to actually use it
 
 - **Evening only, after the morning session on the same topic.** Never before, never instead.
-- **1.5–2× speed, no notes.** Your notes come from the 09:00 session. This is a second exposure to material you have already typed.
+- **1.5–2× speed, no notes.** Your notes come from the morning session. This is a second exposure to material you have already typed.
 - **Do not download the code templates.** Type every line — non-negotiable #1.
 - **Ignore your completion percentage.** You will finish this track having watched maybe 40% of this course, and that is the correct outcome. Completion is not a goal and will not be tracked on the dashboard.
 - **Heaviest use: Weeks 8–12.** That six-week stretch is where the course genuinely earns its place. Front-load nothing before Week 4; there's nothing there for you.
 
 Sources: [Machine Learning A-Z on Udemy](https://www.udemy.com/course/machinelearning/) · [Class Central listing](https://www.classcentral.com/course/udemy-machinelearning-23826)
+
+## Your full Udemy Python library — triage
+
+**Audited:** 9 Aug 2026 · 202 courses owned, **32 match "python"**.
+
+### Read this before the table
+
+**The account is shared.** Completion percentages on any of these courses belong to whoever watched them, not necessarily to Harsh. He is at **0% on all of them**. Treat every "% complete" figure in the Udemy UI as noise — it is not a progress metric for this track, it will never appear on the dashboard, and no recommendation below is based on it.
+
+The real finding is the redundancy. Roughly **fifteen of the thirty-two are the same beginner Python course** wearing different thumbnails: *Python for beginners*, *Python Complete Course For Beginners*, *The Python Programming For Everyone*, *Start Your Career as Python Programmer*, *Python with Practical Approach*, *Python Programming - From Basics to Advanced*, *Complete PYTHON Programming for Beginners 2026*, *The Python Programming A-Z Definitive Diploma*, *Python: From Zero to Hero*, *No Nonsense Python*, *Learn to Code in Python 3*, *Python Masterclass*, *Python Programming for Beginners (Hindi)*, *Learn Python Programming From A-Z*, *Python: Master Programming with 15 Projects*.
+
+Fifteen beginner courses is not fifteen times the learning. It is one course and fourteen decisions you don't have to make again. Pick one, and the choice is closed for 26 weeks.
+
+**So: four courses are in. Twenty-eight are out.** Not "deprioritised" — out. If a topic isn't covered by the four below, the morning session and the free resources in this file cover it.
+
+One caveat on quality: most of these instructors are not names I can vouch for from reputation, and I have not watched the material. The picks below are made on **scope fit and recency**, not on verified teaching quality. The free resources in this file — Real Python, *Automate the Boring Stuff*, 3Blue1Brown, StatQuest, Karpathy — are known quantities and remain the primary reference layer. If a Udemy pick turns out to be weak in Week 1, say so and we drop it; nothing here is load-bearing.
+
+### The four that earn a place
+
+| # | Course | Instructor | Where it fits | Why this one |
+|---|---|---|---|---|
+| 1 | **Complete PYTHON Programming for Beginners – 2026** | Hemanth Kumar Gurrala | **Weeks 1–2**, evenings | Chosen for **recency** — a 2026 course will match the Python 3.12 syntax, f-strings, type hints and tooling you're actually using, where the 2021–22 courses will not. Backup if it disappoints: *Learn Python Programming From A-Z* (Galvan/Wael). Pick one on Day 1 of Week 1 and never reopen the question. |
+| 2 | **Data Manipulation in Python: Master Python, Numpy & Pandas** | Meta Brains | **Week 3 D3–D5** (NumPy), **Week 4 D1–D3** (pandas) | The only course in your library that treats NumPy and pandas as the subject rather than a footnote. This is the one that pairs directly with the two weeks where your `dataWrangling` axis moves from 8 to 40+. |
+| 3 | **The Data Science Course: Complete Data Science Bootcamp 2026** | 365 Careers | **Weeks 5–7** (math & stats) | **This is the find.** ML A-Z covers nothing in Phase 2 — the phase I told you separates engineers from prompt-copiers. 365 Careers has a genuinely good statistics module (distributions, CLT, confidence intervals, hypothesis testing, regression assumptions). Watch its stats sections during Week 7. It does not cover linear algebra or calculus — 3Blue1Brown still owns Weeks 5–6. |
+| 4 | **Machine Learning A-Z [2026]** *(13% done)* | Eremenko / de Ponteves | **Weeks 8–13, 24** | Already mapped in detail above. Unchanged. |
+
+### Three used as problem banks, not courses
+
+Do not watch these. Open them, steal the project brief and the dataset, close the video, and build it yourself.
+
+- **100 Days Data Science Bootcamp: Build 100 Real Life Projects** (Pianalytix) — mine for Week 11–12 practice problems
+- **40 Days Bootcamp: 40 Data Science & ML Projects** (Pianalytix) — same
+- **28 Real World Data Science & Machine Learning Projects 2022** (TheMachineLearning Org) — good source for your P2 problem statement in Week 13
+
+Every one of these is a "watch me build it" format, which is the least effective way to learn and the most effective way to feel like you're learning. Their value is the *problem list*, nothing else.
+
+### Two conditional
+
+- **Natural Language Processing Real-World Projects in Python** (Shan Singh) — **Week 17 D1 only**, and only if you want extra reps on tokenisation and bag-of-words. It is pre-transformer, same limitation as ML A-Z Part 7. Nothing in it for Weeks 17 D2–D5 or Week 18.
+- **Data Analytics A-Z with Python** (Yaswanth Sai Palaghat) — optional second pass for **Week 4 D4** visualisation. Skip if Meta Brains is enough.
+
+### Explicitly out — and why
+
+| Course | Why it's out |
+|---|---|
+| Python and Django Full Stack Web Developer Bootcamp (Jose Portilla) | Portilla is the one instructor here with a genuine reputation, and this is still out — **Django is web development, not ML.** Zero overlap with the 26 weeks. Worth your time *after* Feb 2027 if you want it. |
+| Django Masterclass: Build 9 Real World Django Projects | Same. Out. |
+| Learn Python Programming: by Building a Facebook ChatBot App | 2018-era chatbot ≠ 2026 LLM agents. Actively misleading for Phase 5. |
+| Python Masterclass 2021: Python for Everything [AI+ML+WebDev] | "Everything" courses teach nothing to sufficient depth. Also five years stale. |
+| Python Programming for Beginners \| Full Course in Hindi | Redundant with #1. |
+| 2022 Complete Data Structures: Data Structures With Python | Week 3 D1–D2 covers what you need. You have 20 years of engineering — you know what a hash table is. Out. |
+| Crash course: Data analytics in Python using Pandas · No Nonsense Python · Data Science: Python for Data Analysis Full Bootcamp · Data Analytics Real-World Projects in Python · Data Science 101 NYC · Learn Python for Data Science & ML from A-Z · The Python Programming A-Z Definitive Diploma · Python: From Zero to Hero · Learn to Code in Python 3 · Python with Practical Approach · Python Programming From Basics to Advanced · The Python Programming For Everyone · Start Your Career as Python Programmer · Python Complete Course For Beginners · Python for beginners · Complete PYTHON Programming for Beginners 2026 · Python: Master Programming with 15 Projects | All redundant with #1 or #2, at a similar or lower level. Owning them changes nothing. |
+
+### The rule going forward
+
+**Zero minutes of Udemy before the morning session. Maximum 45 minutes after it, on the same topic, at 1.5×.** If an evening's choice is "watch a lecture" or "type more code", type more code. Every time.
+
+Course completion is **not** tracked on the dashboard and never will be — doubly so on a shared account, where the number isn't even yours. The only progress metrics that count are quiz scores, exam scores, skill axes, and commits to `aiml-journey`.
+
+And don't buy another course during these 26 weeks. There are 202 on the account already. The constraint was never access to material.
 
 ## Datasets we'll use
 
