@@ -26,3 +26,5 @@ visits = visits + 1
 visits = visits + 1
 print(visits)
 print(type(visits))
+
+class = "Python"
