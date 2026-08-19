@@ -21,14 +21,17 @@ STATE_FILE = ROOT / "aiml-dashboard-state.json"
 HTML_FILE = ROOT / "aiml-dashboard.html"
 
 # Literal strings baked into the markup that the STATE block does not control.
-TEXT_FIXES = [
-    ("3 hrs/day (09:00–12:00 IST, Mon–Fri)", "3 hrs/day (11:00–14:00 IST, Mon–Fri)"),
-    ("Written by the 09:00 daily tutor session.", "Written by the 11:00 daily tutor session."),
-    ("Session 09:00–12:00 IST.", "Session 11:00–14:00 IST."),
-    ("Monday 10 August 2026, 09:00 IST", "Friday 7 August 2026, 11:00 IST"),
-    ("No quizzes recorded yet — Monday 10 Aug is Day 1.",
-     "No quizzes recorded yet — Friday 7 Aug is Day 1."),
-]
+#
+# EMPTIED 14 Aug 2026. This list was a landmine: it rewrote markup toward values that were
+# themselves stale (e.g. it would have re-inserted "Friday 7 August 2026" as Day 1, which the
+# 10 Aug restart replaced with 11 August). Patching literal strings after the fact is how the
+# dashboard drifted from the plan three separate times.
+#
+# The dashboard now derives dates, session counts, exam formats and pass gates from STATE at
+# render time, so there is nothing left for this list to fix. Keep it empty. If you find
+# yourself wanting to add an entry here, the correct fix is to make the markup read from STATE
+# instead.
+TEXT_FIXES = []
 
 
 def main() -> int:

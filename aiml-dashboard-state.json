@@ -6,10 +6,11 @@
     "milestone1Date": null,
     "targetDate": null,
     "finalExamDate": null,
-    "totalDays": 53,
+    "totalDays": 33,
     "sessionHours": 3,
-    "sessionWindow": "11:00-14:00 IST, Mon-Fri",
-    "examWindow": "12:00-13:00 IST, Saturday",
+    "sessionWindow": "starts 11:00 IST Mon-Fri, finished when it is finished",
+    "examWindow": "12:00-13:00 IST",
+    "nextExamDate": "2026-08-22",
     "kickoffWindow": {
       "from": "2026-08-07",
       "to": "2026-08-07"
@@ -287,8 +288,8 @@
   "examHistory": [],
   "weeklyAvg": [],
   "streak": {
-    "current": 2,
-    "longest": 2
+    "current": 3,
+    "longest": 3
   },
   "meta": {
     "lastUpdated": "2026-08-14",
@@ -302,7 +303,7 @@
     "replanDue": "2026-08-22",
     "studentPreference": "SET BY HARSH 14 Aug 2026, standing rule. He is a working professional with office, household and family responsibilities - not a student. He starts at 11:00 because it is the quietest part of his day, but he answers in gaps and may continue in the evening or between office tasks. THE TUTOR MUST NOT: flag long gaps between answers, announce that the window has closed, offer to park or defer material because of the clock, or compress/skip curriculum to fit 3 hours. Deliver the curriculum serially and completely, in order; he sets the pace. Deferrals are only acceptable when a concept is genuinely too big for one day (a teaching judgement), never because of elapsed time. The 12 Aug midnight finish was a tutor-side sequencing failure, not evidence that he needs protecting from long sessions.",
     "remediation": "NONE OUTSTANDING as of 14 Aug. The pass-2 item was cleared 12 Aug. The owed D2 check was sat on 14 Aug and scored 50/50, which also cleared the 12 Aug Ex 7 miss (both illegal-name cases are SyntaxError) - it was the first question asked. One live correction on 14 Aug: 'python decides the type of the variable' -> the name has no type, the value does. Corrected in the recap block and re-probed successfully.",
-    "schedulingDefect": "13 Aug: the scheduled run did not fire at all - no session file, no quiz, state.json untouched. FOURTH consecutive scheduling failure (10 Aug fired 14:26; 11 Aug fired 11:42; 12 Aug aborted on a missing folder mount). 14 Aug: also did not fire on schedule; Harsh triggered it manually and the folder again needed connecting mid-session, costing the first 37 min of the window. Two distinct open defects: (a) the task is not firing reliably at 11:00 IST, (b) /Users/mansi/Documents/aiml-track is not connected on run. Both tutor-side; per rubric neither counts against the streak. Cost so far: one whole session (13 Aug) and roughly 2.5 hrs of window across 10-14 Aug.",
+    "schedulingDefect": "13 Aug: the scheduled run did not fire at all - no session file, no quiz, state.json untouched. FOURTH consecutive scheduling failure (10 Aug fired 14:26; 11 Aug fired 11:42; 12 Aug aborted on a missing folder mount). 14 Aug: CORRECTION - the task DID fire on time (lastRunAt 05:39:14Z = 11:09 IST). It aborted because the aiml-track folder was not connected, exactly as on 12 Aug, and Harsh restarted it manually at ~11:37. An earlier note in this session wrongly recorded it as a non-firing; the scheduler is not at fault on 14 Aug. Remaining open defect: /Users/mansi/Documents/aiml-track is not connected when the task runs, which has now aborted or delayed two of the last three sessions. 13 Aug remains a genuine non-run. Both tutor-side; per rubric neither counts against the streak. Cost so far: one whole session (13 Aug) and roughly 2.5 hrs of window across 10-14 Aug.",
     "gitRule": "STANDING RULE set 14 Aug 2026 - THE TUTOR MUST NEVER RUN ANY GIT COMMAND AGAINST /Users/mansi/Documents/aiml-track. Not commit, not add, and NOT status. Root cause finally identified on 14 Aug: `git status` is not read-only - it acquires .git/index.lock to refresh the index. The sandbox reaches the folder through a mount that cannot unlink the file afterwards ('Operation not permitted'), so the lock is stranded and every later git command fails with 'Another git process seems to be running'. This is the same mechanism behind the three stale lock files found on 11 Aug, previously misattributed to an interrupted process on 7 Aug. The tutor writes files; Harsh runs git from his own terminal. If a lock is stranded, the tutor must say so and give him `rm -f .git/index.lock` rather than attempting to fix it.",
     "gitNote": "D1 commit 300c91d pushed 11 Aug after clearing three stale .git lock files left by an interrupted process on 7 Aug. Streak credited. Not a Harsh-side failure."
   },

@@ -119,24 +119,24 @@
 
   <header class="hero">
     <h1>AI/ML Engineer Track — Harsh Singh</h1>
-    <div class="sub">Complete beginner → confident in Python, then ML · RESTARTED 10 Aug · Phase 1: Python from zero · 8 weeks · 11:00–14:00 IST Mon–Fri</div>
+    <div class="sub" id="hero-sub"></div>
     <div class="hero-grid">
-      <div class="hero-stat"><div class="label">Overall progress</div><div class="value" id="stat-overall">0% <small>of curriculum</small></div></div>
-      <div class="hero-stat"><div class="label">Days into plan</div><div class="value" id="stat-days">0 <small>/ 180</small></div></div>
-      <div class="hero-stat"><div class="label">Current streak</div><div class="value" id="stat-streak">0 <small>days</small></div></div>
-      <div class="hero-stat"><div class="label">ML readiness</div><div class="value" id="stat-readiness">0% <small>composite</small></div></div>
+      <div class="hero-stat"><div class="label" id="lbl-overall">Phase 1 progress</div><div class="value" id="stat-overall">—</div></div>
+      <div class="hero-stat"><div class="label">Sessions complete</div><div class="value" id="stat-days">—</div></div>
+      <div class="hero-stat"><div class="label">Current streak</div><div class="value" id="stat-streak">—</div></div>
+      <div class="hero-stat"><div class="label">ML readiness</div><div class="value" id="stat-readiness">—</div></div>
     </div>
     <div class="timeline">
-      <div class="meta">11 Aug '26</div>
-      <div class="track">
+      <div class="meta" id="tl-start"></div>
+      <div class="track" id="tl-track">
         <div class="fill" id="tl-fill" style="width:0%"></div>
         <div class="marker" id="tl-today" style="left:0%"><span class="lbl">Today</span></div>
-        <div class="marker" style="left:21%; background:#fbbf24"><span class="lbl">Exam 1 · 22 Aug</span></div>
-        <div class="marker" style="left:100%; background:#34d399"><span class="lbl">Phase 1 gate</span></div>
       </div>
-      <div class="meta" style="text-align:right">3 Oct '26</div>
+      <div class="meta" style="text-align:right" id="tl-end"></div>
     </div>
   </header>
+
+  <div id="integrity"></div>
 
   <div class="today-card" id="today-card"></div>
 
@@ -152,14 +152,14 @@
       <div class="muted">Two milestones, both with hard, checkable criteria.</div>
 
       <div class="criteria-block">
-        <h3>Milestone 1 · Job-Ready (Week 13)</h3>
-        <div class="when">6 Nov 2026 — credible for junior / associate ML engineer roles</div>
+        <h3>Milestone 1 · Job-Ready</h3>
+        <div class="when" id="when-m1"></div>
         <ul class="criteria" id="criteria-m1"></ul>
       </div>
 
       <div class="criteria-block">
-        <h3>Milestone 2 · AI/ML Engineer (Week 26)</h3>
-        <div class="when">5 Feb 2027 — market-validated, capstone in production</div>
+        <h3>Milestone 2 · AI/ML Engineer</h3>
+        <div class="when" id="when-m2"></div>
         <ul class="criteria" id="criteria-m2"></ul>
       </div>
     </div>
@@ -167,8 +167,8 @@
 
   <div class="grid">
     <div class="card">
-      <h2>Curriculum — Phase 1 live, rest re-planned in Sept</h2>
-      <div class="muted">A phase unlocks when the previous one hits 90% and its gate exam scores ≥ 70 with its project shipped.</div>
+      <h2>Curriculum</h2>
+      <div class="muted" id="curriculum-note"></div>
       <div id="phases"></div>
     </div>
     <div class="card">
@@ -206,10 +206,11 @@ const STATE = {
     "milestone1Date": null,
     "targetDate": null,
     "finalExamDate": null,
-    "totalDays": 53,
+    "totalDays": 33,
     "sessionHours": 3,
-    "sessionWindow": "11:00-14:00 IST, Mon-Fri",
-    "examWindow": "12:00-13:00 IST, Saturday",
+    "sessionWindow": "starts 11:00 IST Mon-Fri, finished when it is finished",
+    "examWindow": "12:00-13:00 IST",
+    "nextExamDate": "2026-08-22",
     "kickoffWindow": {
       "from": "2026-08-07",
       "to": "2026-08-07"
@@ -487,8 +488,8 @@ const STATE = {
   "examHistory": [],
   "weeklyAvg": [],
   "streak": {
-    "current": 2,
-    "longest": 2
+    "current": 3,
+    "longest": 3
   },
   "meta": {
     "lastUpdated": "2026-08-14",
@@ -502,7 +503,7 @@ const STATE = {
     "replanDue": "2026-08-22",
     "studentPreference": "SET BY HARSH 14 Aug 2026, standing rule. He is a working professional with office, household and family responsibilities - not a student. He starts at 11:00 because it is the quietest part of his day, but he answers in gaps and may continue in the evening or between office tasks. THE TUTOR MUST NOT: flag long gaps between answers, announce that the window has closed, offer to park or defer material because of the clock, or compress/skip curriculum to fit 3 hours. Deliver the curriculum serially and completely, in order; he sets the pace. Deferrals are only acceptable when a concept is genuinely too big for one day (a teaching judgement), never because of elapsed time. The 12 Aug midnight finish was a tutor-side sequencing failure, not evidence that he needs protecting from long sessions.",
     "remediation": "NONE OUTSTANDING as of 14 Aug. The pass-2 item was cleared 12 Aug. The owed D2 check was sat on 14 Aug and scored 50/50, which also cleared the 12 Aug Ex 7 miss (both illegal-name cases are SyntaxError) - it was the first question asked. One live correction on 14 Aug: 'python decides the type of the variable' -> the name has no type, the value does. Corrected in the recap block and re-probed successfully.",
-    "schedulingDefect": "13 Aug: the scheduled run did not fire at all - no session file, no quiz, state.json untouched. FOURTH consecutive scheduling failure (10 Aug fired 14:26; 11 Aug fired 11:42; 12 Aug aborted on a missing folder mount). 14 Aug: also did not fire on schedule; Harsh triggered it manually and the folder again needed connecting mid-session, costing the first 37 min of the window. Two distinct open defects: (a) the task is not firing reliably at 11:00 IST, (b) /Users/mansi/Documents/aiml-track is not connected on run. Both tutor-side; per rubric neither counts against the streak. Cost so far: one whole session (13 Aug) and roughly 2.5 hrs of window across 10-14 Aug.",
+    "schedulingDefect": "13 Aug: the scheduled run did not fire at all - no session file, no quiz, state.json untouched. FOURTH consecutive scheduling failure (10 Aug fired 14:26; 11 Aug fired 11:42; 12 Aug aborted on a missing folder mount). 14 Aug: CORRECTION - the task DID fire on time (lastRunAt 05:39:14Z = 11:09 IST). It aborted because the aiml-track folder was not connected, exactly as on 12 Aug, and Harsh restarted it manually at ~11:37. An earlier note in this session wrongly recorded it as a non-firing; the scheduler is not at fault on 14 Aug. Remaining open defect: /Users/mansi/Documents/aiml-track is not connected when the task runs, which has now aborted or delayed two of the last three sessions. 13 Aug remains a genuine non-run. Both tutor-side; per rubric neither counts against the streak. Cost so far: one whole session (13 Aug) and roughly 2.5 hrs of window across 10-14 Aug.",
     "gitRule": "STANDING RULE set 14 Aug 2026 - THE TUTOR MUST NEVER RUN ANY GIT COMMAND AGAINST /Users/mansi/Documents/aiml-track. Not commit, not add, and NOT status. Root cause finally identified on 14 Aug: `git status` is not read-only - it acquires .git/index.lock to refresh the index. The sandbox reaches the folder through a mount that cannot unlink the file afterwards ('Operation not permitted'), so the lock is stranded and every later git command fails with 'Another git process seems to be running'. This is the same mechanism behind the three stale lock files found on 11 Aug, previously misattributed to an interrupted process on 7 Aug. The tutor writes files; Harsh runs git from his own terminal. If a lock is stranded, the tutor must say so and give him `rm -f .git/index.lock` rather than attempting to fix it.",
     "gitNote": "D1 commit 300c91d pushed 11 Aug after clearing three stale .git lock files left by an interrupted process on 7 Aug. Streak credited. Not a Harsh-side failure."
   },
@@ -520,18 +521,39 @@ const STATE = {
 };
 
 // ----- helpers -----
-function daysIntoPlan() {
-  const start = new Date(STATE.student.startDate + "T00:00:00");
-  return Math.max(0, Math.floor((new Date() - start) / 86400000));
+// AUDIT 14 Aug 2026: everything below now derives from STATE. Nothing about dates, session
+// counts, exam formats or pass gates is written into the markup, because every hard-coded
+// value in the original went stale within four days of being written.
+
+function d(s) { return s ? new Date(s + "T00:00:00") : null; }
+function fmt(iso) {
+  const x = d(iso);
+  if (!x) return null;
+  return x.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: '2-digit' });
 }
+function daysIntoPlan() {
+  return Math.max(0, Math.floor((new Date() - d(STATE.student.startDate)) / 86400000));
+}
+// Sessions completed in the CURRENT phase, from real progress.
+function sessionsDone() {
+  const p = STATE.phases.find(x => x.status === 'in_progress') || STATE.phases[0];
+  return { done: Math.round((p.progress / 100) * p.days), total: p.days, phase: p };
+}
+// Phases 2-6 have hours: 0 while they are un-planned. Weighting by hours therefore measures
+// Phase 1 alone and would reach 100% the moment Phase 1 ends - which would be a lie about the
+// whole track. So: report against planned hours only, and say so in the label.
+function plannedOnly() { return STATE.phases.filter(p => p.hours > 0); }
 function computeOverall() {
-  const totalH = STATE.phases.reduce((s,p) => s + p.hours, 0);
-  const doneH  = STATE.phases.reduce((s,p) => s + p.hours * (p.progress/100), 0);
+  const ph = plannedOnly();
+  const totalH = ph.reduce((s,p) => s + p.hours, 0);
+  if (!totalH) return 0;
+  const doneH = ph.reduce((s,p) => s + p.hours * (p.progress/100), 0);
   return Math.round((doneH / totalH) * 100);
 }
+function isFullyPlanned() { return plannedOnly().length === STATE.phases.length; }
 function computeReadiness() {
   const axes = Object.values(STATE.skillAxes);
-  const skillScore = axes.reduce((s,a) => s + (a.current/a.target), 0) / axes.length;
+  const skillScore = axes.reduce((s,a) => s + Math.min(1, a.current/a.target), 0) / axes.length;
   const phaseScore = computeOverall() / 100;
   const projScore  = STATE.projects.reduce((s,p) => s + p.completion, 0) / (STATE.projects.length * 100);
   return Math.round((skillScore * 0.45 + phaseScore * 0.35 + projScore * 0.20) * 100);
@@ -542,14 +564,65 @@ function scoreClass(s) { return s >= 80 ? 'score-good' : (s >= 70 ? 'score-mid' 
 // render red regardless of how good it was. Fixed 14 Aug 2026.
 function pctOf(q) { return Math.round((q.score / (q.max || 50)) * 100); }
 
-document.getElementById("stat-overall").innerHTML   = computeOverall() + '% <small>of curriculum</small>';
-document.getElementById("stat-days").innerHTML      = daysIntoPlan() + ' <small>/ ' + STATE.student.totalDays + '</small>';
+const sd = sessionsDone();
+
+document.getElementById("lbl-overall").textContent =
+  isFullyPlanned() ? 'Overall progress' : 'Progress · ' + sd.phase.name;
+document.getElementById("stat-overall").innerHTML =
+  computeOverall() + '% <small>' + (isFullyPlanned() ? 'of curriculum' : 'of what is planned') + '</small>';
+
+document.getElementById("stat-days").innerHTML =
+  sd.done + ' <small>/ ' + sd.total + ' sessions</small>';
 document.getElementById("stat-streak").innerHTML    = STATE.streak.current + ' <small>days</small>';
 document.getElementById("stat-readiness").innerHTML = computeReadiness() + '% <small>composite</small>';
 
-const pct = Math.min(100, (daysIntoPlan() / STATE.student.totalDays) * 100);
-document.getElementById("tl-fill").style.width = pct + "%";
-document.getElementById("tl-today").style.left = pct + "%";
+document.getElementById("hero-sub").innerHTML =
+  STATE.student.track + ' · Phase ' + sd.phase.id + ': ' + sd.phase.name +
+  ' · ' + sd.total + ' sessions · ' + sd.phase.weeks +
+  ' · <span style="opacity:.8">' + STATE.student.sessionWindow + '</span>';
+
+// ----- timeline: real dates, real proportions -----
+(function () {
+  const start = d(STATE.student.startDate);
+  const end   = d(STATE.student.phase1GateExam) || d(STATE.student.phase1EndDate);
+  document.getElementById("tl-start").textContent = fmt(STATE.student.startDate) || '';
+  document.getElementById("tl-end").textContent   = end ? fmt(STATE.student.phase1GateExam || STATE.student.phase1EndDate) : '';
+  if (!end || end <= start) return;
+
+  const span = end - start;
+  const pos  = iso => Math.max(0, Math.min(100, ((d(iso) - start) / span) * 100));
+  const todayPct = Math.max(0, Math.min(100, ((new Date() - start) / span) * 100));
+
+  document.getElementById("tl-fill").style.width = todayPct + "%";
+  document.getElementById("tl-today").style.left = todayPct + "%";
+
+  const track = document.getElementById("tl-track");
+  // Milestones come from state, not from a hard-coded left:21%.
+  const marks = [];
+  if (STATE.student.nextExamDate) marks.push({ at: STATE.student.nextExamDate, lbl: 'Next exam · ' + fmt(STATE.student.nextExamDate), col: '#fbbf24' });
+  if (STATE.student.phase1GateExam) marks.push({ at: STATE.student.phase1GateExam, lbl: 'Phase 1 gate', col: '#34d399' });
+  marks.forEach(m => {
+    track.insertAdjacentHTML('beforeend',
+      '<div class="marker" style="left:' + pos(m.at) + '%; background:' + m.col + '">' +
+      '<span class="lbl">' + m.lbl + '</span></div>');
+  });
+})();
+
+// ----- milestone dates: suspended means suspended -----
+(function () {
+  const suspended = '<span style="color:#b45309">Date suspended</span> — set in the re-plan due ' +
+    (fmt(STATE.meta.replanDue) || 'TBD');
+  document.getElementById("when-m1").innerHTML = STATE.student.milestone1Date
+    ? fmt(STATE.student.milestone1Date) + ' — credible for junior / associate ML engineer roles'
+    : suspended;
+  document.getElementById("when-m2").innerHTML = STATE.student.targetDate
+    ? fmt(STATE.student.targetDate) + ' — market-validated, capstone in production'
+    : suspended;
+})();
+
+document.getElementById("curriculum-note").innerHTML =
+  'Phase 1 is live. Phases with 0 hrs are un-planned — the re-plan is due ' +
+  (fmt(STATE.meta.replanDue) || 'TBD') + '. A phase unlocks when its gate exam passes (60) and its project is shipped.';
 
 // ----- today card -----
 (function () {
@@ -558,17 +631,75 @@ document.getElementById("tl-today").style.left = pct + "%";
   const now = new Date();
   const dow = now.getDay();
   const wk = Math.max(1, Math.floor((now - start) / 86400000 / 7) + 1);
+  // Sessions completed, derived from real progress - NOT from the day of the week.
+  // The old version printed `dow` (Friday = 5) and called it "Day 5", which was never
+  // the curriculum day. Fixed 14 Aug 2026.
+  const totalSessions = sd.total;
+  const done = sd.done;
+  const next = (STATE.meta.nextSession || '').replace(/"/g, '&quot;');
+  const examToday = STATE.student.nextExamDate &&
+    d(STATE.student.nextExamDate).toDateString() === now.toDateString();
+
   if (now < start) {
-    el.innerHTML = '<strong>Not started yet.</strong> Day 1 is <span class="topic">Friday 7 August 2026, 11:00 IST</span>. ' +
-      'Before then: finish <span class="topic">setup.md</span> — Python 3.12 + uv, VS Code, Jupyter, and a public <span class="topic">aiml-journey</span> GitHub repo.';
+    el.innerHTML = '<strong>Not started yet.</strong> Day 1 is <span class="topic">Tuesday 11 August 2026, 11:00 IST</span>.';
+  } else if (dow === 6 && examToday) {
+    el.innerHTML = '<strong>Saturday — exam day.</strong> Week ' + wk + ' exam runs ' + STATE.student.examWindow + ': ' +
+      '<span class="topic">30 minutes, 10 questions, open-notes, pass 60</span>. Only material taught live and practised is examinable.';
   } else if (dow === 6) {
-    el.innerHTML = '<strong>Saturday — exam day.</strong> Week ' + wk + ' assessment runs 12:00–13:00 IST. 25 questions, pass gate 70.';
+    el.innerHTML = '<strong>Saturday — no exam scheduled.</strong> ' +
+      (STATE.student.nextExamDate ? 'Next exam: <span class="topic">' + fmt(STATE.student.nextExamDate) + '</span>. ' : '') +
+      'Optional self-review, nothing scored.';
   } else if (dow === 0) {
-    el.innerHTML = '<strong>Sunday — rest / make-up day.</strong> No session. If you missed an exam, make it up today.';
+    el.innerHTML = '<strong>Sunday — rest.</strong> No session, nothing owed.';
   } else {
-    el.innerHTML = '<strong>Week ' + wk + ', Day ' + dow + '.</strong> Session 11:00–14:00 IST. ' +
-      'Concept → lab → quiz → commit. <span class="topic">No commit, no logged day.</span>';
+    el.innerHTML = '<strong>Week ' + wk + ' · session ' + done + ' of ' + totalSessions + ' complete.</strong> ' +
+      'Session ' + STATE.student.sessionWindow + ': <span class="topic">one concept → practice → recap → 5-question check → commit</span>. ' +
+      '<br><span class="topic">Next:</span> ' + next.split(/\.\s/)[0] +
+      '<br><small>A day you miss is moved, not lost. Sessions lost to tutor-side failures never count against the streak.</small>';
   }
+})();
+
+// ----- integrity self-check -----
+// Added 14 Aug 2026. Three separate defects shipped silently because the page rendered
+// whatever it was given. It now audits its own state and shows the problems instead.
+(function () {
+  const problems = [];
+  const warn = [];
+
+  Object.entries(STATE.skillAxes).forEach(([k, a]) => {
+    if (a.current > a.target) problems.push('Axis "' + a.label + '" is ' + a.current + ', above its target of ' + a.target + '.');
+    if (a.current < 0 || a.current > 100) problems.push('Axis "' + a.label + '" is out of the 0-100 range (' + a.current + ').');
+  });
+
+  STATE.quizHistory.forEach(q => {
+    const max = q.max || 50;
+    if (q.score > max) problems.push('Check on ' + q.date + ' scores ' + q.score + ' out of ' + max + '.');
+    if (!q.max) warn.push('Check on ' + q.date + ' has no "max" field; assuming 50.');
+  });
+
+  STATE.phases.forEach(p => {
+    if (p.progress > 100 || p.progress < 0) problems.push('Phase ' + p.id + ' progress is ' + p.progress + '%.');
+    if (p.days > 0 && Math.abs((p.progress/100) * p.days - Math.round((p.progress/100) * p.days)) > 0.02) {
+      warn.push('Phase ' + p.id + ' progress (' + p.progress + '%) does not land on a whole session out of ' + p.days + '.');
+    }
+  });
+
+  if (STATE.streak.current > STATE.streak.longest) problems.push('Current streak exceeds longest streak.');
+
+  const stale = Math.floor((new Date() - d(STATE.meta.lastUpdated)) / 86400000);
+  if (stale > 3) warn.push('State last updated ' + stale + ' days ago — the numbers below may be stale.');
+
+  if (!problems.length && !warn.length) return;
+  const box = document.getElementById("integrity");
+  box.innerHTML =
+    '<div style="background:' + (problems.length ? '#fef2f2' : '#fffbeb') +
+    ';border:1px solid ' + (problems.length ? '#fecaca' : '#fde68a') +
+    ';border-radius:12px;padding:12px 16px;margin-bottom:16px;font-size:12px">' +
+    '<strong>' + (problems.length ? 'Data integrity: ' + problems.length + ' problem(s)' : 'Data integrity: notes') + '</strong>' +
+    '<ul style="margin:6px 0 0 18px;padding:0">' +
+    problems.map(p => '<li style="color:#b91c1c">' + p + '</li>').join('') +
+    warn.map(w => '<li style="color:#b45309">' + w + '</li>').join('') +
+    '</ul></div>';
 })();
 
 // ----- radar -----
